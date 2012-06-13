@@ -30,13 +30,13 @@ if(isset($_POST['passenger'])){
 
 	$pass->setJSON('{ 
 	"passTypeIdentifier": "pass.com.apple.test",
-    "formatVersion": 1,
-    "organizationName": "Flight Express",
-    "serialNumber": "123456",
-    "teamIdentifier": "AGK5BZEN3E",
-    "backgroundColor": "rgb(107,156,196)",
-    "logoText": "Flight info",
-    "boardingPass": {
+	"formatVersion": 1,
+	"organizationName": "Flight Express",
+	"serialNumber": "123456",
+	"teamIdentifier": "AGK5BZEN3E",
+	"backgroundColor": "rgb(107,156,196)",
+	"logoText": "Flight info",
+	"boardingPass": {
         "primaryFields": [
             {
             	"key" : "origin",
