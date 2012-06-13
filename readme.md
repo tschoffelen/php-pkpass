@@ -20,4 +20,4 @@ Please note that iOS 6 and Passbook are still in beta, which means that the API 
 6. Choose a password and export the file to a folder
 
 ## Support
-For info, mail me at tom@tomttb.com or tweet me via @tschoffelen.
+For info, mail me at tom@tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
