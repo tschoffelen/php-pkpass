@@ -63,9 +63,12 @@ class PKPass{
 		$zip->close();
 		unlink('temp/signature');
 		unlink('temp/manifest.json');
+		header('Pragma: no-cache');
 		header('Content-type: application/vnd.apple.pkpass');
+		header('Content-length: '.filesize("pass.pkpass"));
 		header('Content-Disposition: attachment; filename="pass.pkpass"');
 		echo file_get_contents('pass.pkpass');
+		unlink('pass.pkpass');
 	}
 }
 ?>
