@@ -9,6 +9,8 @@ This class provides the functionality to create an Pass for Passbook in Apple's 
 ## Usage
 Please take a look at the example.php file for example usage. For more info on the JSON for the pass and how to style it, take a look at the [docs at developers.apple.com](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html).
 
+A live demo of the full sample can be found on [http://www.tomttb.com/test/pass/full_sample](http://www.tomttb.com/test/pass/full_sample).
+
 Please note that iOS 6 and Passbook are still in beta, which means that the API can change at any moment. As new beta releases of iOS 6 come up, I'll try to update the class as soon as possible and add more features.
 
 ### Requesting the Pass Certificate
