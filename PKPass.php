@@ -61,6 +61,9 @@ class PKPass{
 			$zip->addFile($file,basename($file));
 		}
 		$zip->close();
+		if(!file_exists('pass.pkpass') || filesize('pass,pkpass') < 1){
+			die('Error: error while creating pass.pkpass. Check your Zip extension.');
+		}
 		unlink('temp/signature');
 		unlink('temp/manifest.json');
 		header('Pragma: no-cache');
