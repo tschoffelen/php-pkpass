@@ -31,10 +31,7 @@ class PKPass{
 		}
 	}
 	function create(){
-		if(!file_exists('temp/')){
-			mkdir('temp');
-		}
-		file_put_contents('temp/pass.json',$this->JSON); 
+		// Create SHA hashes for all files in package
 		$this->SHAs['pass.json'] = sha1($this->JSON);
 		foreach($this->files as $file){
 			if(stristr(basename($file),'icon') || stristr(basename($file),'logo')){
@@ -43,17 +40,25 @@ class PKPass{
 			$this->SHAs[basename($file)] = sha1(file_get_contents($file));
 		}
 		$manifest = json_encode((object)$this->SHAs);
-		file_put_contents('temp/manifest.json',$manifest);
-		exec('openssl pkcs12 -in "'.$this->certPath.'" -clcerts -nokeys -out temp/certificate.pem -passin pass:"'.$this->certPass.'"');
-		exec('openssl pkcs12 -in "'.$this->certPath.'" -nocerts -out temp/key.pem -passin pass:"'.$this->certPass.'" -passout pass:"'.$this->certPass.'"');
-		exec('openssl smime -binary -sign -signer temp/certificate.pem -inkey temp/key.pem -in temp/manifest.json -out temp/signature -outform DER -passin pass:"'.$this->certPass.'"');
-		unlink('temp/certificate.pem');
-		unlink('temp/key.pem');
+		
+		// Create signature
+		if(!openssl_pkcs12_read(file_get_contents($this->certPath), $p12cert, $this->certPass)){
+			die('Error: could not read .p12 certificate.');
+		}
+		$pKey = openssl_get_privatekey($p12cert['pkey']);
+		if(!openssl_sign($manifest, $signature, $pKey)){
+			die('Error: could not create the pass signature. Please check your certificate.');
+		}
+		openssl_free_key($pKey);
+		
+		// Package file in Zip (as .pkpass)
 		$zip = new ZipArchive();
-		$zip->open("pass.pkpass", ZIPARCHIVE::CREATE);
-		$zip->addFile('temp/signature','signature');
-		$zip->addFile('temp/manifest.json','manifest.json');
-		$zip->addFile('temp/pass.json','pass.json');
+		if(!$zip->open("/tmp/pass.pkpass", ZIPARCHIVE::CREATE)){
+			die('Error: could not open pass.pkpass with ZipArchive extension.');
+		}
+		$zip->addFromString('signature',$signature);
+		$zip->addFromString('manifest.json',$manifest);
+		$zip->addFromString('pass.json',$this->JSON);
 		foreach($this->files as $file){
 			if(stristr(basename($file),'icon') || stristr(basename($file),'logo')){
 				$zip->addFile($file,ucfirst(basename($file)));
@@ -61,17 +66,21 @@ class PKPass{
 			$zip->addFile($file,basename($file));
 		}
 		$zip->close();
-		if(!file_exists('pass.pkpass') || filesize('pass.pkpass') < 1){
+		
+		// Check if pass is created and valid
+		if(!file_exists('/tmp/pass.pkpass') || filesize('/tmp/pass.pkpass') < 1){
 			die('Error: error while creating pass.pkpass. Check your Zip extension.');
 		}
-		unlink('temp/signature');
-		unlink('temp/manifest.json');
+		
+		// Output pass
 		header('Pragma: no-cache');
 		header('Content-type: application/vnd.apple.pkpass');
-		header('Content-length: '.filesize("pass.pkpass"));
+		header('Content-length: '.filesize("/tmp/pass.pkpass"));
 		header('Content-Disposition: attachment; filename="pass.pkpass"');
-		echo file_get_contents('pass.pkpass');
-		unlink('pass.pkpass');
+		echo file_get_contents('/tmp/pass.pkpass');
+		
+		// Cleanup
+		unlink('/tmp/pass.pkpass');
 	}
 }
 ?>
