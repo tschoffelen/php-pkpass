@@ -70,7 +70,7 @@ class PKPass{
 		header('Pragma: no-cache');
 		header('Content-type: application/vnd.apple.pkpass');
 		header('Content-length: '.filesize($this->tempPath."pass.pkpass"));
-		header('Content-Disposition: attachment; filename="pass.zip"');
+		header('Content-Disposition: attachment; filename="pass.pkpass"');
 		echo file_get_contents($this->tempPath.'pass.pkpass');
 		
 		// Cleanup
