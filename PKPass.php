@@ -4,6 +4,8 @@
  * 
  * Author: Tom Schoffelen
  * Revision: Tom Janssen
+ * 
+ * www.tomttb.com
  */
 class PKPass {
 	#################################
@@ -329,4 +331,5 @@ $end = '
 		
 		return true;
 	}
-<?php
+}
+?>
