@@ -1,8 +1,8 @@
 <?php
-if(isset($_POST['passenger'])){
+require_once('../PKPass.php');
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
 	// User has filled in the flight info, so create the pass now
-	
-	require('../PKPass.php');
 	
 	// Predefined data
 	$labels = array(
@@ -23,10 +23,33 @@ if(isset($_POST['passenger'])){
 	
 	// Create pass
 	
-	$pass = new PKPass(); 
+	//Set certifivate and path in the constructor
+	$pass = new PKPass('../../Certificate.p12', 'test123'); 
 
-	$pass->setCertificate('../../Certificate.p12'); // Set the path to your Pass Certificate (.p12 file)
-	$pass->setCertificatePassword('test123'); // Set password for certificate
+	//Check if an error occured within the constructor
+	if($pass->checkError($error) == true) {
+		exit('An error occured: '.$error);
+	}
+
+	//Or do it manually outside of the constructor
+	/*
+	// Set the path to your Pass Certificate (.p12 file)
+	if($pass->setCertificate('../../Certificate.p12') == false) {
+		echo 'An error occured';
+		if($pass->checkError($error) == true) {
+			echo ': '.$error;
+		}
+		exit('.');
+	} 
+	// Set password for certificate
+	if($pass->setCertificatePassword('test123') == false) {
+		echo 'An error occured';
+		if($pass->checkError($error) == true) {
+			echo ': '.$error;
+		}
+		exit('.');
+	}  */
+
 
 	$pass->setJSON('{ 
 	"passTypeIdentifier": "pass.com.apple.test",
@@ -77,16 +100,28 @@ if(isset($_POST['passenger'])){
         "messageEncoding": "iso-8859-1"
     }
     }');
+    if($pass->checkError($error) == true) {
+    	exit('An error occured: '.$error);
+    }
+
 
     // add files to the PKPass package
     $pass->addFile('../images/icon.png');
     $pass->addFile('../images/icon@2x.png');
     $pass->addFile('../images/logo.png');
+    if($pass->checkError($error) == true) {
+    	exit('An error occured: '.$error);
+    }
 
-    $pass->create(); // Create and output the PKPass
-    exit;
 	
-}else{
+	//If you pass true, the class will output the zip into the browser.
+    $result = $pass->create(true);
+    if ($result == false) { // Create and output the PKPass
+    	echo $pass->getError();
+    }
+
+    
+} else {
 	// User lands here, there are no $_POST variables set	
 	?>
 	<html>
@@ -159,6 +194,6 @@ if(isset($_POST['passenger'])){
 			</div>
 		</body>
 	</html>
-	<?
+<?php
 } 
-?>
+<?php
