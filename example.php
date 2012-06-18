@@ -17,7 +17,7 @@ $pass->setJSON('{
     "boardingPass": {
         "primaryFields": [
             {
-            	"key" : "origin",
+                "key" : "origin",
             	"label" : "San Francisco",
             	"value" : "SFO"
             },
@@ -61,5 +61,5 @@ $pass->addFile('images/icon.png');
 $pass->addFile('images/icon@2x.png');
 $pass->addFile('images/logo.png');
 
-$pass->create(); // Create and output the PKPass
-?>
+$pass->create(true); // Create and output the PKPass
+<?php
