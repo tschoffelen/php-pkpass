@@ -62,4 +62,4 @@ $pass->addFile('images/icon@2x.png');
 $pass->addFile('images/logo.png');
 
 $pass->create(true); // Create and output the PKPass
-<?php
+?>
