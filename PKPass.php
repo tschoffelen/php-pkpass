@@ -252,7 +252,7 @@ $end = '
 		$certs = array();
 		if(openssl_pkcs12_read($pkcs12, $certs, $this->certPass) == true) {
 			$certdata = openssl_x509_read($certs['cert']);
-			$privkey = openssl_pkey_get_private($certs['pkey'], $certPass );
+			$privkey = openssl_pkey_get_private($certs['pkey'], $this->certPass );
 
 			openssl_pkcs7_sign($paths['manifest'], $paths['signature'], $certdata, $privkey, array(), PKCS7_BINARY | PKCS7_DETACHED);
 			
