@@ -14,7 +14,8 @@ $pass->setJSON('{
     "teamIdentifier": "AGK5BZEN3E",
     "backgroundColor": "rgb(107,156,196)",
     "logoText": "Flight info",
-    "boardingPass": {
+    "description": "Demo pass",
+	"boardingPass": {
         "primaryFields": [
             {
                 "key" : "origin",

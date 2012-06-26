@@ -59,6 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
 	"teamIdentifier": "AGK5BZEN3E",
 	"backgroundColor": "rgb(107,156,196)",
 	"logoText": "Flight info",
+	"description": "Demo pass",
 	"boardingPass": {
         "primaryFields": [
             {

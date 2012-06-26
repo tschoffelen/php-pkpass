@@ -25,6 +25,7 @@ if(isset($_POST['name'])){
 	"serialNumber": "'.$id.'",
     "backgroundColor": "rgb(240,240,240)",
 	"logoText": "Starbucks",
+	"description": "Demo pass",
 	"storeCard": {
         "secondaryFields": [
             {
