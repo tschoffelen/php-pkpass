@@ -164,7 +164,7 @@ class PKPass {
 		// Output pass
 		if($output == true) {
 			header('Pragma: no-cache');
-			header('Content-type: application/vnd-com.apple.pkpass');
+			header('Content-type: application/vnd.apple.pkpass');
 			header('Content-length: '.filesize($paths['pkpass']));
 			header('Content-Disposition: attachment; filename="'.basename($paths['pkpass']).'"');
 			echo file_get_contents($paths['pkpass']);
