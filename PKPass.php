@@ -42,6 +42,12 @@ class PKPass {
 	 */
 	protected $certPass = '';
 	
+	/* 
+	 * Holds the path to the WWDR Intermediate certificate
+	 * Variable: string
+	 */
+	protected $WWDRcertPath = '';
+	
 	
 	#################################
 	########PRIVATE VARIABLES########
@@ -180,7 +186,7 @@ class PKPass {
 	}
 	
 	public function checkError(&$error) {
-		if(trim($this->sError) == '') {
+		if(empty(trim($this->sError))) {
 			return false;
 		}
 		
@@ -254,7 +260,17 @@ $end = '
 			$certdata = openssl_x509_read($certs['cert']);
 			$privkey = openssl_pkey_get_private($certs['pkey'], $this->certPass );
 
-			openssl_pkcs7_sign($paths['manifest'], $paths['signature'], $certdata, $privkey, array(), PKCS7_BINARY | PKCS7_DETACHED);
+			if(!empty($this->WWDRcertPath)){
+
+				if(!file_exists($this->WWDRcertPath)){
+					$this->sError = 'WWDC Intermediate Certificate does not exist';
+					return false;
+				}
+			
+				openssl_pkcs7_sign($paths['manifest'], $paths['signature'], $certdata, $privkey, array(), PKCS7_BINARY | PKCS7_DETACHED, $this->WWDCcertPath);
+			}else{
+				openssl_pkcs7_sign($paths['manifest'], $paths['signature'], $certdata, $privkey, array(), PKCS7_BINARY | PKCS7_DETACHED);
+			}
 			
 			$signature = file_get_contents($paths['signature']);
 			$signature = $this->convertPEMtoDER($signature);
