@@ -186,7 +186,7 @@ class PKPass {
 	}
 	
 	public function checkError(&$error) {
-		if(empty(trim($this->sError))) {
+		if(trim($this->sError) == '') {
 			return false;
 		}
 		
