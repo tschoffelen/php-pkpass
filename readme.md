@@ -24,9 +24,10 @@ Please note that iOS 6 and Passbook are still in beta, which means that the API 
 6. Choose a password and export the file to a folder
 
 ### Getting the example.php sample to work
-1. Request the Pass certificate and upload it to your server
+1. Request the Pass certificate (`.p12`) and upload it to your server
 2. Set the correct path and password on [line 6 and 7](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L6)
-3. Change the `passTypeIdentifier` and `teamIndentifier` to the correct values, which can be found on the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage) after clicking on 'Configure' next to the Pass ID, on line [10](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L10) and [14](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L14)
+3. Download and import your [WWDR Intermediate certificate](https://developer.apple.com/certificationauthority/AppleWWDRCA.cer) to Keychain, export as `.pem` and set the correct path on [line 8](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L8)
+4. Change the `passTypeIdentifier` and `teamIndentifier` to the correct values, which can be found on the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage) after clicking on 'Configure' next to the Pass ID, on line [11](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L10) and [15](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L14)
 
 After completing these steps, you should be ready to go. Upload all the files to your server and navigate to the address of the example.php file on your iPhone.
 
