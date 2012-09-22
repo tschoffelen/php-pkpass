@@ -117,6 +117,16 @@ class PKPass {
 	}
 	
 	/*
+	 * Sets the path to the WWDR Intermediate certificate
+	 * Parameter: string, path to certificate
+	 * Return: boolean, always true
+	 */
+	public function setWWDRcertPath($path) {
+		$this->WWDRcertPath = $path;
+		return true;
+	}
+	
+	/*
 	 * Decodes JSON and saves it to a variable
 	 * Parameter: json-string
 	 * Return: boolean, true on succes, false if json wasn't decodable
@@ -129,6 +139,7 @@ class PKPass {
 		$this->sError = 'This is not a JSON string.';
 		return false;
 	}
+	
 	/*
 	 * Adds file to the file array
 	 * Parameter: string, path to file

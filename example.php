@@ -3,8 +3,9 @@ require('PKPass.php');
 
 $pass = new PKPass();
 
-$pass->setCertificate('../Certificate.p12'); // Set the path to your Pass Certificate (.p12 file)
-$pass->setCertificatePassword('test123'); // Set password for certificate
+$pass->setCertificate('../Certificate.p12');  // Set the path to your Pass Certificate (.p12 file)
+$pass->setCertificatePassword('test123');     // Set password for certificate
+$pass->setWWDRcertPath('../AppleWWDRCA.pem'); // Set the path to your WWDR Intermediate certificate (.pem file)
 
 $pass->setJSON('{ 
     "passTypeIdentifier": "pass.com.apple.test",
@@ -63,4 +64,3 @@ $pass->addFile('images/icon@2x.png');
 $pass->addFile('images/logo.png');
 
 $pass->create(true); // Create and output the PKPass
-?>
