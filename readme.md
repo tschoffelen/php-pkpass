@@ -1,5 +1,5 @@
 # PHP PKPass class for iOS 6 Passbook
-This class provides the functionality to create an Pass for Passbook in Apple's iOS 6 on-the-fly. It creates, signs and packages the Pass as a .pkpass file according to Apple's documentation.
+This class provides the functionality to create an Pass for Passbook in Apple's iOS 6 and newer on-the-fly. It creates, signs and packages the Pass as a .pkpass file according to Apple's documentation.
 
 Please also take a look at [my repository PHP-Passkit](https://github.com/tschoffelen/PHP-Passkit), which includes the PKTemplate and PKValidate classes, to easily manage templates and validate pass files.
 
@@ -11,9 +11,8 @@ Please also take a look at [my repository PHP-Passkit](https://github.com/tschof
 ## Usage
 Please take a look at the example.php file for example usage. For more info on the JSON for the pass and how to style it, take a look at the [docs at developers.apple.com](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html).
 
-A live demo of the full sample can be found on [http://www.tomttb.com/test/pass/full_sample](http://www.tomttb.com/test/pass/full_sample).
+A live demo of the full sample can be found on [http://www.tomttb.com/test/pass/full_sample](http://www.tomttb.com/test/pass/full_sample) (Sorry, outdated at the moment...).
 
-Please note that iOS 6 and Passbook are still in beta, which means that the API can change at any moment. As new beta releases of iOS 6 come up, I'll try to update the class as soon as possible and add more features.
 
 ### Requesting the Pass Certificate
 1. Go to the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage)
