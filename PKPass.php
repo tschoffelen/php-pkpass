@@ -48,16 +48,15 @@ class PKPass {
 	 */
 	protected $WWDRcertPath = '';
 	
+	/*
+	 * Holds the path to a temporary folder
+	 */
+	protected $tempPath = '/tmp/'; // Must end with slash!
+	
 	
 	#################################
 	########PRIVATE VARIABLES########
 	#################################
-	
-	
-	/*
-	 * Holds the path to a temporary folder
-	 */
-	private $tempPath = '/tmp/'; // Must end with slash!
 	
 	/*
 	 * Holds error info if an error occured
@@ -124,6 +123,23 @@ class PKPass {
 	public function setWWDRcertPath($path) {
 		$this->WWDRcertPath = $path;
 		return true;
+	}
+	
+	/*
+	 * Sets the path to the temporary directory (must end with a slash)
+	 * Parameter: string, path to temporary directory
+	 * Return: boolean, true on success, false if directory doesn't exist
+	 */
+	public function setTempPath($path) {
+		if (is_dir($path))
+		{
+			$this->tempPath = $path;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	/*
