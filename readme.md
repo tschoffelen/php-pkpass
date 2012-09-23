@@ -5,6 +5,7 @@ Please also take a look at [my repository PHP-Passkit](https://github.com/tschof
 
 ## Requirements
 * PHP 5
+* PHP [ZIP Support](http://php.net/manual/en/book.zip.php) (May be installed by default)
 * Access to filesystem (Script must be able to create temporary folders)
 
 ## Usage
