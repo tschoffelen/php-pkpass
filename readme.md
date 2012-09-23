@@ -5,8 +5,7 @@ Please also take a look at [my repository PHP-Passkit](https://github.com/tschof
 
 ## Requirements
 * PHP 5
-* Access to OpenSSL and Zip via PHP's exec()
-* Access to filesystem (script creates a directory `temp/` for temporary files)
+* Access to filesystem (Script must be able to create temporary folders)
 
 ## Usage
 Please take a look at the example.php file for example usage. For more info on the JSON for the pass and how to style it, take a look at the [docs at developers.apple.com](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html).
