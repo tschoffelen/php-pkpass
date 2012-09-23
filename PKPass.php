@@ -159,12 +159,21 @@ class PKPass {
 	/*
 	 * Adds file to the file array
 	 * Parameter: string, path to file
+	 * Parameter: string, optional, name to create file as
 	 * Return: boolean, true on succes, false if file doesn't exist
 	 */
-	public function addFile($path){
+	public function addFile($path, $name = NULL){
 		if(file_exists($path)){
-			$this->files[] = $path;
-			return true;
+			if ($name === NULL)
+			{
+				$this->files[$path] = $path;
+				return true;
+			}
+			else
+			{
+				$this->files[$name] = $path;
+				return true;
+			}
 		}
 		$this->sError = 'File did not exist.';
 		return false;
@@ -246,8 +255,8 @@ class PKPass {
 	protected function createManifest() {
 		// Creates SHA hashes for all files in package
 		$this->SHAs['pass.json'] = sha1($this->JSON);
-		foreach($this->files as $file) {
-			$this->SHAs[basename($file)] = sha1(file_get_contents($file));
+		foreach($this->files as $name => $path) {
+			$this->SHAs[basename($name)] = sha1(file_get_contents($path));
 		}
 		$manifest = json_encode((object)$this->SHAs);
 		
@@ -333,8 +342,8 @@ $end = '
 		$zip->addFile($paths['signature'],'signature');
 		$zip->addFromString('manifest.json',$manifest);
 		$zip->addFromString('pass.json',$this->JSON);
-		foreach($this->files as $file){
-			$zip->addFile($file, basename($file));
+		foreach($this->files as $name => $path){
+			$zip->addFile($path, basename($name));
 		}
 		$zip->close();
 		
