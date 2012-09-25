@@ -16,7 +16,7 @@ if(isset($_POST['name'])){
 
 	$pass->setCertificate('../../Certificate.p12'); // Set the path to your Pass Certificate (.p12 file)
 	$pass->setCertificatePassword('test123'); // Set password for certificate
-
+	$pass->setWWDRcertPath('../AppleWWDR.pem');
 	$pass->setJSON('{ 
 	"passTypeIdentifier": "pass.com.apple.test",
 	"formatVersion": 1,
