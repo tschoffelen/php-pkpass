@@ -188,7 +188,10 @@ class PKPass {
 		$paths = $this->paths();
 	
 		//Creates and saves the json manifest
-		$manifest = $this->createManifest();
+		if(!($manifest = $this->createManifest())){
+			$this->clean();
+			return false;	
+		}
 		
 		//Create signature
 		if($this->createSignature($manifest) == false) {
@@ -255,9 +258,22 @@ class PKPass {
 	protected function createManifest() {
 		// Creates SHA hashes for all files in package
 		$this->SHAs['pass.json'] = sha1($this->JSON);
+		$hasicon = false;
 		foreach($this->files as $name => $path) {
+			if(strtolower(basename($name)) == 'icon.png'){
+				$hasicon = true;
+			}
 			$this->SHAs[basename($name)] = sha1(file_get_contents($path));
+			
 		}
+		
+		if(!$hasicon){
+			$this->sError = 'Error while creating pass.pkpass. Check your Zip extension.';
+			$this->clean();
+			return false;
+		}
+		
+		
 		$manifest = json_encode((object)$this->SHAs);
 		
 		return $manifest;
