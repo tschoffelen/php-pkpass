@@ -60,7 +60,7 @@ if(isset($_POST['name'])){
     $pass->addFile('icon.png');
     $pass->addFile('icon@2x.png');
     $pass->addFile('logo.png');
-    $pass->addFile('background.png');
+    $pass->addFile('background.png', 'strip.png');
 
     if(!$pass->create(true)) { // Create and output the PKPass
         echo 'Error: '.$pass->getError();
