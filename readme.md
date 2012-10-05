@@ -11,8 +11,10 @@ Please also take a look at [my repository PHP-Passkit](https://github.com/tschof
 ## Usage
 Please take a look at the example.php file for example usage. For more info on the JSON for the pass and how to style it, take a look at the [docs at developers.apple.com](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html).
 
-A live demo of the full sample can be found on [http://www.tomttb.com/test/pass/full_sample](http://www.tomttb.com/test/pass/full_sample) (Sorry, outdated at the moment...).
-
+Demo:
+* Simple example (example.php): [http://apps.tomttb.com/pkpass/example.php](http://apps.tomttb.com/pkpass/example.php)
+* Full example (full_sample/index.php): [http://apps.tomttb.com/pkpass/full_sample](http://apps.tomttb.com/pkpass/full_sample)
+* Starbucks example (starbucks_sample/index.php): [http://apps.tomttb.com/pkpass/starbucks_sample](http://apps.tomttb.com/pkpass/starbucks_sample)
 
 ### Requesting the Pass Certificate
 1. Go to the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage)
