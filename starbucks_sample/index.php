@@ -62,7 +62,9 @@ if(isset($_POST['name'])){
     $pass->addFile('logo.png');
     $pass->addFile('background.png');
 
-    $pass->create(true); // Create and output the PKPass
+    if(!$pass->create(true)) { // Create and output the PKPass
+        echo 'Error: '.$pass->getError();
+    }
     exit;
 	
 }else{
@@ -111,5 +113,4 @@ if(isset($_POST['name'])){
 		</body>
 	</html>
 	<?
-} 
-?>
+}
