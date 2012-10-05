@@ -75,7 +75,7 @@ if(isset($_POST['name'])){
 			<title>Flight pass creator - PHP class demo</title>
 			
 			<!-- Reusing some CSS from another project of mine -->
-			<link href="http://www.lifeschool.nl/static/css" rel="stylesheet" type="text/css" />
+			<link href="http://www.lifeschool.nl/static/bootstrap.css" rel="stylesheet" type="text/css" />
 			<meta name="viewport" content="width=320; user-scalable=no" />
 			<style>
 				.header { background-color: #CCC; padding-top: 30px; padding-bottom: 30px; margin-bottom: 32px; text-align: center; }
@@ -83,7 +83,7 @@ if(isset($_POST['name'])){
 				.title { color: black; font-size: 22px; text-shadow: 1px 1px 1px rgba(0,0,0,0.1); font-weight: bold; display: block; text-align: center; }
 				.userinfo { margin: 0px auto; padding-bottom: 32px; width: 280px;}
 				form.form-stacked { padding: 0px;}
-				legend { text-align: center; padding-bottom: 20px; clear: both;}
+				legend { text-align: center; padding-bottom: 25px; border-bottom: none; clear: both;}
 				input.xlarge { width: 280px; height: 26px; line-height: 26px;}
 			</style>
 		</head>
