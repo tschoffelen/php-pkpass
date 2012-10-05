@@ -34,4 +34,4 @@ After completing these steps, you should be ready to go. Upload all the files to
 
 
 ## Support
-For info, mail me at tom@tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
+Please add an Issue to this Github repository, mail me at tom [at] tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
