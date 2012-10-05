@@ -320,7 +320,7 @@ $end = '
 			if(!empty($this->WWDRcertPath)){
 
 				if(!file_exists($this->WWDRcertPath)){
-					$this->sError = 'WWDC Intermediate Certificate does not exist';
+					$this->sError = 'WWDR Intermediate Certificate does not exist';
 					return false;
 				}
 			
