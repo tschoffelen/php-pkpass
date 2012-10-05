@@ -8,7 +8,7 @@ if(isset($_POST['name'])){
 	// Variables
 	$id = rand(100000,999999) . '-' . rand(100,999) . '-' . rand(100,999); // Every card should have a unique serialNumber
 	$balance = '$'.rand(0,30).'.'.rand(10,99); // Create random balance
-	$name = $_POST['name'];
+	$name = stripslashes($_POST['name']);
 	
 	
 	// Create pass
@@ -72,7 +72,7 @@ if(isset($_POST['name'])){
 	?>
 	<html>
 		<head>
-			<title>Flight pass creator - PHP class demo</title>
+			<title>Starbucks pass creator - PHP class demo</title>
 			
 			<!-- Reusing some CSS from another project of mine -->
 			<link href="http://www.lifeschool.nl/static/bootstrap.css" rel="stylesheet" type="text/css" />
