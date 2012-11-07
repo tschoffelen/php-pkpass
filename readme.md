@@ -13,7 +13,6 @@ Please take a look at the example.php file for example usage. For more info on t
 
 A live demo of the full sample can be found on [http://www.tomttb.com/test/pass/full_sample](http://www.tomttb.com/test/pass/full_sample) (Sorry, outdated at the moment...).
 
-
 ### Requesting the Pass Certificate
 1. Go to the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage)
 2. Create a new Pass Type ID
@@ -26,10 +25,11 @@ A live demo of the full sample can be found on [http://www.tomttb.com/test/pass/
 1. Request the Pass certificate (`.p12`) and upload it to your server
 2. Set the correct path and password on [line 6 and 7](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L6)
 3. Download and import your [WWDR Intermediate certificate](https://developer.apple.com/certificationauthority/AppleWWDRCA.cer) to Keychain, export as `.pem` and set the correct path on [line 8](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L8)
-4. Change the `passTypeIdentifier` and `teamIndentifier` to the correct values, which can be found on the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage) after clicking on 'Configure' next to the Pass ID, on line [11](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L10) and [15](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L14)
+4. Change the `passTypeIdentifier` and `teamIndentifier` to the correct values, which can be found on the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage) after clicking on 'Configure' next to the Pass ID, on line [15](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L15) and [17](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L17)
 
 After completing these steps, you should be ready to go. Upload all the files to your server and navigate to the address of the example.php file on your iPhone.
 
+## Support & documentation
+Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support.
 
-## Support
 For info, mail me at tom@tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
