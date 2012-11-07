@@ -286,18 +286,14 @@ class PKPass {
 	 * Return: string, PKCS7 DER
 	 */
 	protected function convertPEMtoDER($signature) {
-	
-//DO NOT MOVE THESE WITH TABS, OTHERWISE THE FUNCTION WON'T WORK ANYMORE!!
-$begin = 'filename="smime.p7s"
-
-';
-$end = '
-
-------';
-		$signature = substr($signature, strpos($signature, $begin)+strlen($begin));    
-		$signature = substr($signature, 0, strpos($signature, $end));
-		$signature = base64_decode($signature);
+		$begin = 'filename="smime.p7s"';
+		$end = '------';
+		$signature = substr($signature, strpos($signature, $begin)+strlen($begin));
 		
+		$signature = substr($signature, 0, strpos($signature, $end));
+		$signature = trim($signature);
+		$signature = base64_decode($signature);
+
 		return $signature;
 	}
 	
@@ -320,7 +316,7 @@ $end = '
 			if(!empty($this->WWDRcertPath)){
 
 				if(!file_exists($this->WWDRcertPath)){
-					$this->sError = 'WWDC Intermediate Certificate does not exist';
+					$this->sError = 'WWDR Intermediate Certificate does not exist';
 					return false;
 				}
 			

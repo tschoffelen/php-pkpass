@@ -25,6 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
 	
 	//Set certifivate and path in the constructor
 	$pass = new PKPass('../../Certificate.p12', 'test123'); 
+	
+	// Add the WWDR certificate 
+	$pass->setWWDRcertPath('../AppleWWDR.pem');
 
 	//Check if an error occured within the constructor
 	if($pass->checkError($error) == true) {
@@ -130,7 +133,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
 			<title>Flight pass creator - PHP class demo</title>
 			
 			<!-- Reusing some CSS from another project of mine -->
-			<link href="http://www.lifeschool.nl/static/css" rel="stylesheet" type="text/css" />
+			<link href="http://www.lifeschool.nl/static/bootstrap.css" rel="stylesheet" type="text/css" />
 			<meta name="viewport" content="width=320; user-scalable=no" />
 			<style>
 				.header { color: white; background-color: #6699cc; padding-top: 30px; padding-bottom: 30px; margin-bottom: 32px; text-align: center; }
@@ -138,7 +141,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
 				.title { color: white; font-size: 22px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5); font-weight: bold; display: block; text-align: center; }
 				.userinfo { margin: 0px auto; padding-bottom: 32px; width: 280px;}
 				form.form-stacked { padding: 0px;}
-				legend { text-align: center; padding-bottom: 20px; clear: both;}
+				legend { text-align: center; padding-bottom: 25px; clear: both; border-bottom: none;}
 				input.xlarge { width: 280px; height: 26px; line-height: 26px;}
 			</style>
 		</head>
