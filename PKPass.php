@@ -268,7 +268,7 @@ class PKPass {
 		}
 		
 		if(!$hasicon){
-			$this->sError = 'Error while creating pass.pkpass. Check your Zip extension.';
+			$this->sError = 'Missing required icon.png file.';
 			$this->clean();
 			return false;
 		}
