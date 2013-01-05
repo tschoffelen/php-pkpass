@@ -37,5 +37,5 @@ Please read the instructions above and consult the [Passbook Documentation](http
 
 Email me at tom [at] tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
 
-## Gittip!
-Like my work? Please consider giving me a tip: <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/tschoffelen/widget.html" width="48pt" height="22pt"></iframe>
+## Send me a coffee
+Like my work? [Consider giving a small donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8Y8GRHBU7V8N). 
