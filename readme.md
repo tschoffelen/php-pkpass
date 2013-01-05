@@ -36,3 +36,6 @@ After completing these steps, you should be ready to go. Upload all the files to
 Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support.
 
 Email me at tom [at] tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
+
+## Gittip!
+Like my work? Please consider giving me a tip: <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/tschoffelen/widget.html" width="48pt" height="22pt"></iframe>
