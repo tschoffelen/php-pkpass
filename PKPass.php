@@ -260,10 +260,10 @@ class PKPass {
 		$this->SHAs['pass.json'] = sha1($this->JSON);
 		$hasicon = false;
 		foreach($this->files as $name => $path) {
-			if(strtolower(basename($name)) == 'icon.png'){
+			if(strtolower($name) == 'icon.png'){
 				$hasicon = true;
 			}
-			$this->SHAs[basename($name)] = sha1(file_get_contents($path));
+			$this->SHAs[$name] = sha1(file_get_contents($path));
 			
 		}
 		
@@ -355,7 +355,7 @@ class PKPass {
 		$zip->addFromString('manifest.json',$manifest);
 		$zip->addFromString('pass.json',$this->JSON);
 		foreach($this->files as $name => $path){
-			$zip->addFile($path, basename($name));
+			$zip->addFile($path, $name);
 		}
 		$zip->close();
 		
