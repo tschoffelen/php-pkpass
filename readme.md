@@ -1,8 +1,6 @@
 # PHP PKPass class for iOS 6 Passbook
 This class provides the functionality to create an Pass for Passbook in Apple's iOS 6 and newer on-the-fly. It creates, signs and packages the Pass as a .pkpass file according to Apple's documentation.
 
-Please also take a look at [my repository PHP-Passkit](https://github.com/tschoffelen/PHP-Passkit), which includes the PKTemplate and PKValidate classes, to easily manage templates and validate pass files.
-
 ## Requirements
 * PHP 5
 * PHP [ZIP Support](http://php.net/manual/en/book.zip.php) (May be installed by default)
