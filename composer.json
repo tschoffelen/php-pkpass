@@ -1,0 +1,23 @@
+{
+    "name": "pkpass/pkpass",
+    "description": "PHP PKPass class for iOS 6 Passbook",
+    "keywords": ["PHP","apple","ios","iphone","ipad","passbook"],
+    "homepage": "https://github.com/tschoffelen/PHP-PKPass",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tom Schoffelen",
+            "homepage": "http://www.tomttb.com",
+            "email": "tom@tomttb.com",
+        }
+    ],
+    "require": {
+        "php": ">=5.0.0",
+        "ext-zip": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "PHP-PKPass": "PKPass.php"
+        }
+    }
+}
