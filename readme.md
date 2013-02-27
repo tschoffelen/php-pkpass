@@ -6,6 +6,15 @@ This class provides the functionality to create an Pass for Passbook in Apple's 
 * PHP [ZIP Support](http://php.net/manual/en/book.zip.php) (May be installed by default)
 * Access to filesystem (Script must be able to create temporary folders)
 
+## Instalation
+#### Composer
+Run: `$ composer require pkpass/pkpass: *`
+
+or add to your composer.json: `"pkpass/pkpass": "dev-master"`
+
+#### Manual
+Require PKPass.php file in yours phps `require('PKPass.php');`
+
 ## Usage
 Please take a look at the example.php file for example usage. For more info on the JSON for the pass and how to style it, take a look at the [docs at developers.apple.com](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html).
 

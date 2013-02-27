@@ -7,6 +7,8 @@
  * 
  * www.tomttb.com
  */
+namespace PKPass;
+
 class PKPass {
 	#################################
 	#######PROTECTED VARIABLES#######
