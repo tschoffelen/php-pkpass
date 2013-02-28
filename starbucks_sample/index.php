@@ -3,7 +3,7 @@ if(isset($_POST['name'])){
 	// User has filled in the card info, so create the pass now
 	
 	setlocale(LC_MONETARY, 'en_US');
-	require('../PKPass.php');
+	require('../src/PKPass.php');
 		
 	// Variables
 	$id = rand(100000,999999) . '-' . rand(100,999) . '-' . rand(100,999); // Every card should have a unique serialNumber

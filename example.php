@@ -1,5 +1,5 @@
 <?php
-require('PKPass.php');
+require('src/PKPass.php');
 
 $pass = new PKPass();
 
