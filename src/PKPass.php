@@ -8,6 +8,7 @@
  * www.tomttb.com
  */
 namespace PKPass;
+use \ZipArchive as ZipArchive;
 
 class PKPass {
 	#################################
@@ -341,7 +342,7 @@ class PKPass {
 		
 		// Package file in Zip (as .pkpass)
 		$zip = new ZipArchive();
-		if(!$zip->open($paths['pkpass'], ZIPARCHIVE::CREATE)) {
+		if(!$zip->open($paths['pkpass'], ZipArchive::CREATE)) {
 			$this->sError = 'Could not open '.basename($paths['pkpass']).' with ZipArchive extension.';
 			return false;
 		}
