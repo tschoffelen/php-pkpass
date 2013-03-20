@@ -1,7 +1,7 @@
 <?php
 require('src/PKPass.php');
 
-$pass = new PKPass();
+$pass = new PKPass\PKPass();
 
 $pass->setCertificate('../Certificate.p12');  // 2. Set the path to your Pass Certificate (.p12 file)
 $pass->setCertificatePassword('test123');     // 2. Set password for certificate
