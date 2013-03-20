@@ -103,7 +103,7 @@ class PKPass {
 			return true;
 		}
 		
-		$this->sError = 'Certificate file did not exist.';
+		$this->sError = 'Certificate file does not exist.';
 		return false;
 	}
 	
@@ -170,7 +170,7 @@ class PKPass {
             $this->files[$name] = $path;
             return true;
 		}
-		$this->sError = 'File did not exist.';
+		$this->sError = 'File does not exist.';
 		return false;
 	}
 	
