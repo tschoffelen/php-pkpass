@@ -166,11 +166,7 @@ class PKPass {
 	 */
 	public function addFile($path, $name = NULL){
 		if(file_exists($path)){
-			if ($name === NULL)
-			{
-                $fileInfo = pathinfo($path);
-                $name     = $fileInfo['basename'];
-			}
+			$name = ($name === NULL) ? basename($path) : $name;
             $this->files[$name] = $path;
             return true;
 		}
