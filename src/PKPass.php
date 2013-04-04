@@ -20,6 +20,11 @@ class PKPass {
 	 * Variable: string
 	 */
 	protected $certPath;
+
+	/*
+	 * Name of the downloaded file.
+	 */
+	protected $name;
 	
 	/*
 	 * Holds the files to include in the .pkpass
@@ -209,10 +214,11 @@ class PKPass {
 
 		// Output pass
 		if($output == true) {
+			$fileName = ($this->getName()) ? $this->getName() : basename($paths['pkpass']);
 			header('Pragma: no-cache');
 			header('Content-type: application/vnd.apple.pkpass');
 			header('Content-length: '.filesize($paths['pkpass']));
-			header('Content-Disposition: attachment; filename="'.basename($paths['pkpass']).'"');
+			header('Content-Disposition: attachment; filename="'.$fileName.'"');
 			echo file_get_contents($paths['pkpass']);
 			
 			$this->clean();
@@ -223,6 +229,16 @@ class PKPass {
 			
 			return $file;
 		}
+	}
+
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	public function setName($name)
+	{
+		$this->name = $name;
 	}
 	
 	public function checkError(&$error) {
