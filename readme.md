@@ -8,7 +8,7 @@ This class provides the functionality to create an Pass for Passbook in Apple's 
 
 ## Instalation
 #### Composer
-Run: `$ composer require pkpass/pkpass: *`
+Run: `$ composer require pkpass/pkpass`
 
 or add to your composer.json: `"pkpass/pkpass": "dev-master"`
 
