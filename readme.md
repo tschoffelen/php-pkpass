@@ -6,7 +6,7 @@ This class provides the functionality to create an Pass for Passbook in Apple's 
 * PHP [ZIP Support](http://php.net/manual/en/book.zip.php) (May be installed by default)
 * Access to filesystem (Script must be able to create temporary folders)
 
-## Instalation
+## Installation
 #### Composer
 Run: `$ composer require pkpass/pkpass`
 
@@ -20,7 +20,8 @@ Please take a look at the example.php file for example usage. For more info on t
 
 Demo:
 * Simple example (example.php): [http://apps.tomttb.com/pkpass/example.php](http://apps.tomttb.com/pkpass/example.php)
-* Full example (full_sample/index.php): [http://apps.tomttb.com/pkpass/full_sample](http://apps.tomttb.com/pkpass/full_sample)
+* Full example (full_sample/index.php): [http://apps.tomttb.com/pkpass/full_sample](http://apps.tomttb.com/pkpass/full_sample)<br>
+  _Note: this example shows how to support localized keys._
 * Starbucks example (starbucks_sample/index.php): [http://apps.tomttb.com/pkpass/starbucks_sample](http://apps.tomttb.com/pkpass/starbucks_sample)
 
 ### Requesting the Pass Certificate
