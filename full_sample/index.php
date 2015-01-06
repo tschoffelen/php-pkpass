@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
 	"serialNumber": "123456",
 	"teamIdentifier": "AGK5BZEN3E",
 	"backgroundColor": "rgb(107,156,196)",
-	"logoText": "Flight info",
+	"logoText": "FLIGHT_INFO_LABEL",
 	"description": "Demo pass",
 	"boardingPass": {
         "primaryFields": [
@@ -79,12 +79,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
         "secondaryFields": [
             {
                 "key": "gate",
-                "label": "Gate",
+                "label": "GATE_LABEL",
                 "value": "'.$gate.'"
             },
             {
                 "key": "date",
-                "label": "Departure date",
+                "label": "DEPARTURE_DATE_LABEL",
                 "value": "'.$date.'"
             }
 
@@ -113,6 +113,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])){
     $pass->addFile('../images/icon.png');
     $pass->addFile('../images/icon@2x.png');
     $pass->addFile('../images/logo.png');
+    // specify english and french localizations
+    $pass->addFile('en.strings', 'en.lproj/pass.strings');
+    $pass->addFile('fr.strings', 'fr.lproj/pass.strings');
     if($pass->checkError($error) == true) {
     	exit('An error occured: '.$error);
     }
