@@ -1,1 +1,2 @@
-PKPass/PKPass.php
+<?php
+require('PKPass/PKPass.php');
