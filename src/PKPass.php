@@ -33,7 +33,7 @@ class PKPass
      * Holds the files to include in the .pkpass
      * Variable: array
      */
-    protected $files = array();
+    protected $files = [];
 
     /**
      * Holds the json
@@ -386,7 +386,7 @@ class PKPass
         file_put_contents($paths['manifest'], $manifest);
 
         $pkcs12 = file_get_contents($this->certPath);
-        $certs  = array();
+        $certs  = [];
         if (openssl_pkcs12_read($pkcs12, $certs, $this->certPass) == true) {
             $certdata = openssl_x509_read($certs['cert']);
             $privkey  = openssl_pkey_get_private($certs['pkey'], $this->certPass);
@@ -404,12 +404,12 @@ class PKPass
                     $paths['signature'],
                     $certdata,
                     $privkey,
-                    array(),
+                    [],
                     PKCS7_BINARY | PKCS7_DETACHED,
                     $this->WWDRcertPath
                 );
             } else {
-                openssl_pkcs7_sign($paths['manifest'], $paths['signature'], $certdata, $privkey, array(), PKCS7_BINARY | PKCS7_DETACHED);
+                openssl_pkcs7_sign($paths['manifest'], $paths['signature'], $certdata, $privkey, [], PKCS7_BINARY | PKCS7_DETACHED);
             }
 
             $signature = file_get_contents($paths['signature']);
@@ -462,11 +462,11 @@ class PKPass
     protected function paths()
     {
         //Declare base paths
-        $paths = array(
+        $paths = [
             'pkpass'    => 'pass.pkpass',
             'signature' => 'signature',
-            'manifest'  => 'manifest.json'
-        );
+            'manifest'  => 'manifest.json',
+        ];
 
         //If trailing slash is missing, add it
         if (substr($this->tempPath, -1) != '/') {
