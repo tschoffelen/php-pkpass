@@ -12,12 +12,12 @@
         }
     ],
     "require": {
-        "php": ">=5.0.0",
+        "php": ">=5.4",
         "ext-zip": "*"
     },
     "autoload": {
-        "psr-0": {
-            "PKPass": "src"
+        "psr-4": {
+            "PKPass\\": ""
         }
     }
 }
