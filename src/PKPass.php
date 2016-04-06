@@ -163,9 +163,9 @@ class PKPass
             $this->tempPath = $path;
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -184,6 +184,7 @@ class PKPass
 
             return true;
         }
+
         $this->sError = 'This is not a JSON string.';
 
         return false;
@@ -208,6 +209,7 @@ class PKPass
 
             return true;
         }
+
         $this->sError = 'File does not exist.';
 
         return false;
@@ -313,12 +315,6 @@ class PKPass
     {
         return $this->sError;
     }
-
-
-
-    #################################
-    #######PROTECTED FUNCTIONS#######
-    #################################
 
     /**
      * Subfunction of create()
