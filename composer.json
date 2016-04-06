@@ -16,8 +16,8 @@
         "ext-zip": "*"
     },
     "autoload": {
-        "psr-0": {
-            "PKPass": "src"
+        "psr-4": {
+            "PKPass": ""
         }
     }
 }
