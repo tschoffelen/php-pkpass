@@ -1,6 +1,6 @@
 {
     "name": "pkpass/pkpass",
-    "description": "PHP PKPass class for iOS 6 Passbook",
+    "description": "PHP PKPass class for iOS Wallet",
     "keywords": ["PHP","apple","ios","iphone","ipad","passbook"],
     "homepage": "https://github.com/tschoffelen/PHP-PKPass",
     "type": "library",
