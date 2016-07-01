@@ -256,18 +256,21 @@ class PKPass
             return false;
         }
 
+        // Get contents of generated file
+        $file = file_get_contents($paths['pkpass']);
+        $this->clean();
+
         // Output pass
         if ($output == true) {
-
             $fileName = ($this->getName()) ? $this->getName() : basename($paths['pkpass']);
             header('Pragma: no-cache');
             header('Content-type: application/vnd.apple.pkpass');
             header('Content-length: ' . filesize($paths['pkpass']));
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
+            
+            echo $file;
+            return true;
         }
-
-        $file = file_get_contents($paths['pkpass']);
-        $this->clean();
 
         return $file;
     }
