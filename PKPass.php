@@ -258,6 +258,7 @@ class PKPass
 
         // Get contents of generated file
         $file = file_get_contents($paths['pkpass']);
+        $size = filesize($paths['pkpass']);
         $this->clean();
 
         // Output pass
@@ -265,7 +266,7 @@ class PKPass
             $fileName = ($this->getName()) ? $this->getName() : basename($paths['pkpass']);
             header('Pragma: no-cache');
             header('Content-type: application/vnd.apple.pkpass');
-            header('Content-length: ' . filesize($paths['pkpass']));
+            header('Content-length: ' . $size);
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
             
             echo $file;
