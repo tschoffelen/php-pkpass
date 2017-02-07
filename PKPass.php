@@ -257,11 +257,17 @@ class PKPass
         // Get contents of generated file
         $file = file_get_contents($paths['pkpass']);
         $size = filesize($paths['pkpass']);
+        $name = basename($paths['pkpass']);
+        
+        // Cleanup
         $this->clean();
-
+        
         // Output pass
         if ($output == true) {
-            $fileName = ($this->getName()) ? $this->getName() : basename($paths['pkpass']);
+            $fileName = $this->getName() ? $this->getName() : $name;
+            if(!strstr($fileName, '.')){
+                $fileName .= '.pkpass';
+            }
             header('Content-Description: File Transfer');
             header('Content-Type: application/vnd.apple.pkpass');
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
@@ -273,10 +279,10 @@ class PKPass
             header('Content-Length: ' . $size);
             ob_end_flush();
             set_time_limit(0);
-            readfile($paths['pkpass']);
+            echo $file;
             return true;
         }
-
+        
         return $file;
     }
 
