@@ -17,13 +17,6 @@ Require PKPass.php file in your php files `require('PKPass.php');`
 
 ## Usage
 Please take a look at the example.php file for example usage. For more info on the JSON for the pass and how to style it, take a look at the [docs at developers.apple.com](https://developer.apple.com/library/ios/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html).
-[Another helpful PDF](https://developer.apple.com/library/ios/documentation/UserExperience/Reference/PassKit_Bundle/PassKit_Bundle.pdf)
-
-Demo:
-* Simple example (example.php): [http://apps.tomttb.com/pkpass/example.php](http://apps.tomttb.com/pkpass/example.php)
-* Full example (full_sample/index.php): [http://apps.tomttb.com/pkpass/full_sample](http://apps.tomttb.com/pkpass/full_sample)<br>
-  _Note: this example shows how to support localized keys._
-* Starbucks example (starbucks_sample/index.php): [http://apps.tomttb.com/pkpass/starbucks_sample](http://apps.tomttb.com/pkpass/starbucks_sample)
 
 ### Requesting the Pass Certificate
 1. Go to the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage)
@@ -41,10 +34,15 @@ Demo:
 
 After completing these steps, you should be ready to go. Upload all the files to your server and navigate to the address of the example.php file on your iPhone.
 
-## Support & documentation
-Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support.
+## Included demos
+* Simple example (example.php)
+* Full example (full_sample/index.php)
+* Starbucks example (starbucks_sample/index.php)
 
-Email me at tom [at] tomttb.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
+## Support & documentation
+Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=PHP-PKPass), which contains quite a few questions about this library.
+
+Email me at thomas [at] scholica.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
 
 ## Send me a coffee
 Like my work? [Consider giving a small donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8Y8GRHBU7V8N). 
