@@ -40,7 +40,7 @@ After completing these steps, you should be ready to go. Upload all the files to
 * Starbucks example (starbucks_sample/index.php)
 
 ## Support & documentation
-Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=PHP-PKPass), which contains quite a few questions about this library.
+Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
 
 Email me at thomas [at] scholica.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
 
