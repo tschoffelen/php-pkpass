@@ -1,3 +1,6 @@
+[![OpenCollective](https://opencollective.com/php-pkpass/backers/badge.svg)](#backers) 
+[![OpenCollective](https://opencollective.com/php-pkpass/sponsors/badge.svg)](#sponsors)
+
 # PHP PKPass class for iOS Wallet
 This class provides the functionality to create an Pass for Passbook in Apple's iOS 6 and newer on-the-fly. It creates, signs and packages the Pass as a .pkpass file according to Apple's documentation.
 
@@ -44,5 +47,70 @@ Please read the instructions above and consult the [Passbook Documentation](http
 
 Email me at thomas [at] scholica.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
 
-## Send me a coffee
-Like my work? [Consider giving a small donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8Y8GRHBU7V8N). 
+## Backers
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/php-pkpass#backer)]
+
+<a href="https://opencollective.com/php-pkpass/backer/0/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/0/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/1/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/1/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/2/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/2/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/3/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/3/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/4/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/5/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/5/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/6/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/6/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/7/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/7/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/8/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/8/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/9/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/9/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/10/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/10/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/11/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/11/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/12/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/12/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/13/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/13/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/14/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/14/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/15/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/15/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/16/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/16/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/17/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/17/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/18/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/18/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/19/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/19/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/20/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/20/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/21/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/21/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/22/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/22/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/23/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/23/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/24/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/24/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/25/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/25/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/26/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/26/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/27/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/27/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/28/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/28/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/backer/29/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/29/avatar.svg"></a>
+
+## Sponsors
+Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/php-pkpass#sponsor)]
+
+<a href="https://opencollective.com/php-pkpass/sponsor/0/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/1/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/2/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/3/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/4/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/5/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/6/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/7/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/8/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/9/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/9/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/10/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/10/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/11/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/11/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/12/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/12/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/13/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/13/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/14/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/14/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/15/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/15/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/16/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/16/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/17/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/17/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/18/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/18/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/19/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/19/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/20/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/20/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/21/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/21/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/22/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/22/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/23/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/23/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/24/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/24/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/25/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/25/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/26/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/26/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/27/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/27/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/28/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/28/avatar.svg"></a>
+<a href="https://opencollective.com/php-pkpass/sponsor/29/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/29/avatar.svg"></a>
