@@ -47,11 +47,7 @@ Please read the instructions above and consult the [Passbook Documentation](http
 
 Email me at thomas [at] scholica.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
 
-## Send me a coffee
-Like my work? [Consider giving a small donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8Y8GRHBU7V8N). 
-
 ## Backers
-
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/php-pkpass#backer)]
 
 <a href="https://opencollective.com/php-pkpass/backer/0/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/0/avatar.svg"></a>
@@ -86,7 +82,6 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/php-pkpass/backer/29/website" target="_blank"><img src="https://opencollective.com/php-pkpass/backer/29/avatar.svg"></a>
 
 ## Sponsors
-
 Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/php-pkpass#sponsor)]
 
 <a href="https://opencollective.com/php-pkpass/sponsor/0/website" target="_blank"><img src="https://opencollective.com/php-pkpass/sponsor/0/avatar.svg"></a>
