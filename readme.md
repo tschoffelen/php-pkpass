@@ -31,16 +31,16 @@ Please take a look at the example.php file for example usage. For more info on t
 
 ### Getting the example.php sample to work
 1. Request the Pass certificate (`.p12`) and upload it to your server
-2. Set the correct path and password on [line 6 and 7](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L6)
-3. Download and import your [WWDR Intermediate certificate](https://developer.apple.com/certificationauthority/AppleWWDRCA.cer) to Keychain, export as `.pem` and set the correct path on [line 8](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L8)
-4. Change the `passTypeIdentifier` and `teamIndentifier` to the correct values, which can be found on the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage) after clicking on 'Configure' next to the Pass ID, on line [15](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L15) and [17](https://github.com/tschoffelen/PHP-PKPass/blob/master/example.php#L17)
+2. Set the correct path and password on [line 8 and 9](examples/example.php#L8)
+3. Download and import your [WWDR Intermediate certificate](https://developer.apple.com/certificationauthority/AppleWWDRCA.cer) to Keychain, export as `.pem` and set the correct path on [line 10](examples/example.php#L10)
+4. Change the `passTypeIdentifier` and `teamIndentifier` to the correct values, which can be found on the [iOS Provisioning portal](https://developer.apple.com/ios/manage/passtypeids/ios/manage) after clicking on 'Configure' next to the Pass ID, on line [17](examples/example.php#L17) and [19](examples/example.php#L19)
 
 After completing these steps, you should be ready to go. Upload all the files to your server and navigate to the address of the example.php file on your iPhone.
 
 ## Included demos
-* Simple example (example.php)
-* Full example (full_sample/index.php)
-* Starbucks example (starbucks_sample/index.php)
+* [Simple example](examples/example.php)
+* [Full example](examples/full_sample/)
+* [Starbucks example](examples/starbucks_sample/)
 
 ## Support & documentation
 Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
