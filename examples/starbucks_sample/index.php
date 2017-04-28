@@ -1,28 +1,41 @@
 <?php
+
+/**
+ * Copyright (c) 2017, Thomas Schoffelen BV.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+
 use PKPass\PKPass;
 
-if (isset($_POST['name'])) {
+require('../../vendor/autoload.php');
+
+if(isset($_POST['name'])) {
     // User has filled in the card info, so create the pass now
 
     setlocale(LC_MONETARY, 'en_US');
-    require('../../PKPass.php');
 
     // Variables
-    $id      = rand(100000, 999999) . '-' . rand(100, 999) . '-' . rand(100, 999); // Every card should have a unique serialNumber
+    $id = rand(100000, 999999) . '-' . rand(100, 999) . '-' . rand(100, 999); // Every card should have a unique serialNumber
     $balance = '$' . rand(0, 30) . '.' . rand(10, 99); // Create random balance
-    $name    = stripslashes($_POST['name']);
+    $name = stripslashes($_POST['name']);
 
     // Create pass
-    $pass = new PKPass();
-
-    $pass->setCertificate('../../../Certificate.p12'); // Set the path to your Pass Certificate (.p12 file)
-    $pass->setCertificatePassword('test123'); // Set password for certificate
-    $pass->setWWDRcertPath('../../../AppleWWDR.pem');
-    $pass->setJSON('{
-	"passTypeIdentifier": "pass.com.apple.test",
+    // Set the path to your Pass Certificate (.p12 file)
+    $pass = new PKPass('../../Certificates.p12', 'password');
+    $pass->setData('{
+	"passTypeIdentifier": "pass.com.scholica.flights", 
 	"formatVersion": 1,
 	"organizationName": "Starbucks",
-	"teamIdentifier": "AGK5BZEN3E",
+	"teamIdentifier": "KN44X8ZLNC",
 	"serialNumber": "' . $id . '",
     "backgroundColor": "rgb(240,240,240)",
 	"logoText": "Starbucks",
@@ -63,21 +76,23 @@ if (isset($_POST['name'])) {
     $pass->addFile('logo.png');
     $pass->addFile('background.png', 'strip.png');
 
-    if ( !$pass->create(true)) { // Create and output the PKPass
+    if(!$pass->create(true)) { // Create and output the PKPass
         echo 'Error: ' . $pass->getError();
     }
     exit;
 } else {
     // User lands here, there are no $_POST variables set
 
-?><html>
+    ?>
+    <html>
     <head>
         <title>Starbucks pass creator - PHP class demo</title>
-
-        <!-- Reusing some CSS from another project of mine -->
-        <link href="http://www.lifeschool.nl/static/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <meta name="viewport" content="width=320; user-scalable=no"/>
+        <meta name="viewport" content="width=device-width; user-scalable=no"/>
         <style>
+            body {
+                font-family: Helvetica, sans-serif;
+            }
+
             .header {
                 background-color: #CCC;
                 padding-top: 30px;
@@ -127,7 +142,8 @@ if (isset($_POST['name'])) {
     </head>
     <body>
     <div class="header">
-        <img class="logo" src="logo_web.png"/> <span class="title">Starbucks</span>
+        <img class="logo" src="logo_web.png"/>
+        <span class="title">Starbucks</span>
     </div>
     <div class="userinfo">
         <form action="index.php" method="post" class="form-stacked">
@@ -137,7 +153,11 @@ if (isset($_POST['name'])) {
                 <div class="clearfix">
                     <label style="text-align:left" for="name">Nickname</label>
                     <div class="input">
-                        <input class="xlarge" name="name" id="name" type="text" value="Johnny's card"/>
+                        <input class="xlarge"
+                               name="name"
+                               id="name"
+                               type="text"
+                               value="Johnny's card"/>
                     </div>
                 </div>
 
@@ -148,6 +168,5 @@ if (isset($_POST['name'])) {
 
     </div>
     </body>
-</html>
-<?
-}
+    </html>
+<?php } ?>

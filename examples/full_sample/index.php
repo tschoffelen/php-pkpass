@@ -1,67 +1,61 @@
 <?php
+
+/**
+ * Copyright (c) 2017, Thomas Schoffelen BV.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+
 use PKPass\PKPass;
 
-require_once('../../PKPass.php');
+require('../../vendor/autoload.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])) {
-	// User has filled in the flight info, so create the pass now
+if(isset($_POST['passenger'])) {
+    // User has filled in the flight info, so create the pass now
 
-	// Predefined data
-	$labels = [
-		'SFO' => 'San Francisco',
-		'LAX' => 'Los Angeles',
-		'LHR' => 'London',
-	];
-	$gates  = ['F12', 'G43', 'A2', 'C5', 'K9'];
+    // Predefined data
+    $labels = [
+        'SFO' => 'San Francisco',
+        'LAX' => 'Los Angeles',
+        'LHR' => 'London',
+    ];
+    $gates = ['F12', 'G43', 'A2', 'C5', 'K9'];
 
-	// User-set vars
-	$passenger         = addslashes($_POST['passenger']);
-	$origin            = $_POST['origin'];
-	$origin_label      = $labels[$origin];
-	$destination       = $_POST['destination'];
-	$destination_label = $labels[$destination];
-	$gate              = $gates[array_rand($gates)]; // Yup, pick a random gate
-	$date              = date('m/d/Y H:i', $_POST['date']); // Convert date to string
+    // User-set vars
+    $passenger = addslashes($_POST['passenger']);
+    $origin = $_POST['origin'];
+    $origin_label = $labels[$origin];
+    $destination = $_POST['destination'];
+    $destination_label = $labels[$destination];
+    $gate = $gates[array_rand($gates)]; // Yup, pick a random gate
+    $date = date('m/d/Y H:i', $_POST['date']); // Convert date to string
 
-	// Create pass
+    // Create pass
 
-	//Set certifivate and path in the constructor
-	$pass = new PKPass('../../Certificate.p12', 'test123');
+    //Set certificate and path in the constructor
+    $pass = new PKPass('../../Certificates.p12', 'password');
 
-	// Add the WWDR certificate 
-	$pass->setWWDRcertPath('../AppleWWDR.pem');
+    //Check if an error occurred within the constructor
+    if($pass->checkError($error) == true) {
+        exit('An error occurred: ' . $error);
+    }
 
-	//Check if an error occured within the constructor
-	if ($pass->checkError($error) == true) {
-		exit('An error occured: ' . $error);
-	}
-
-	//Or do it manually outside of the constructor
-	/*
-	// Set the path to your Pass Certificate (.p12 file)
-	if($pass->setCertificate('../../Certificate.p12') == false) {
-		echo 'An error occured';
-		if($pass->checkError($error) == true) {
-			echo ': '.$error;
-		}
-		exit('.');
-	} 
-	// Set password for certificate
-	if($pass->setCertificatePassword('test123') == false) {
-		echo 'An error occured';
-		if($pass->checkError($error) == true) {
-			echo ': '.$error;
-		}
-		exit('.');
-	}  */
-
-	$pass->setJSON('{
-	"passTypeIdentifier": "pass.com.apple.test",
+    // Set pass data
+    $pass->setData('{
+	"passTypeIdentifier": "pass.com.scholica.flights",
 	"formatVersion": 1,
 	"organizationName": "Flight Express",
 	"serialNumber": "123456",
-	"teamIdentifier": "AGK5BZEN3E",
-	"backgroundColor": "rgb(107,156,196)",
+	"teamIdentifier": "KN44X8ZLNC",
+	"backgroundColor": "rgb(32,110,247)",
 	"logoText": "FLIGHT_INFO_LABEL",
 	"description": "Demo pass",
 	"boardingPass": {
@@ -103,39 +97,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])) {
         "format": "PKBarcodeFormatQR",
         "message": "Flight-Gate' . $gate . '-' . $date . '-' . $passenger . '-' . $destination . '",
         "messageEncoding": "iso-8859-1"
-    }
+    },
+    "relevantDate": "' . date('Y-m-d\TH:i:sP', $_POST['date']) . '"
     }');
-	if ($pass->checkError($error) == true) {
-		exit('An error occured: ' . $error);
-	}
+    if($pass->checkError($error) == true) {
+        exit('An error occured: ' . $error);
+    }
 
-	// add files to the PKPass package
-	$pass->addFile('../images/icon.png');
-	$pass->addFile('../images/icon@2x.png');
-	$pass->addFile('../images/logo.png');
-	// specify english and french localizations
-	$pass->addFile('en.strings', 'en.lproj/pass.strings');
-	$pass->addFile('fr.strings', 'fr.lproj/pass.strings');
-	if ($pass->checkError($error) == true) {
-		exit('An error occured: ' . $error);
-	}
+    // Add files to the PKPass package
+    $pass->addFile('../images/icon.png');
+    $pass->addFile('../images/icon@2x.png');
+    $pass->addFile('../images/logo.png');
+    // Specify english and french localizations
+    $pass->addFile('en.strings', 'en.lproj/pass.strings');
+    $pass->addFile('fr.strings', 'fr.lproj/pass.strings');
 
-	//If you pass true, the class will output the zip into the browser.
-	$result = $pass->create(true);
-	if ($result == false) { // Create and output the PKPass
-		echo $pass->getError();
-	}
+    if($pass->checkError($error) == true) {
+        exit('An error occured: ' . $error);
+    }
+    // Create and output the PKPass
+    // If you pass true, the class will output the zip into the browser.
+    $result = $pass->create(true);
+    if($result == false) {
+        echo $pass->getError();
+    }
 } else {
-	// User lands here, there are no $_POST variables set	
+    // User lands here, there are no $_POST variables set
 	?>
 	<html>
 	<head>
 		<title>Flight pass creator - PHP class demo</title>
-
-		<!-- Reusing some CSS from another project of mine -->
-		<link href="http://www.lifeschool.nl/static/bootstrap.css" rel="stylesheet" type="text/css"/>
 		<meta name="viewport" content="width=320; user-scalable=no"/>
 		<style>
+            body {
+                font-family: Helvetica, sans-serif;
+            }
 			.header {
 				color: white;
 				background-color: #6699cc;
@@ -199,11 +195,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])) {
 						<select name="origin" style="width: auto;">
 							<option value="SFO">San Francisco</option>
 							<option value="LAX">Los Angeles</option>
-							<option value="LHR">Londen</option>
+							<option value="LHR">London</option>
 						</select> &nbsp; to &nbsp; <select name="destination" style="width: auto;">
 							<option value="SFO">San Francisco</option>
 							<option value="LAX">Los Angeles</option>
-							<option value="LHR">Londen</option>
+							<option value="LHR">London</option>
 						</select>
 					</div>
 				</div>
@@ -234,6 +230,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['passenger'])) {
 	</div>
 	</body>
 	</html>
-	<?php
-}
-?>
+<?php } ?>
