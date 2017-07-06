@@ -39,8 +39,8 @@ After completing these steps, you should be ready to go. Upload all the files to
 
 ## Included demos
 * [Simple example](examples/example.php)
-* [Flight ticket example](examples/full_sample/), also [online here](pkpass.dev.scholica.com/examples/full_sample/)
-* [Starbucks card example](examples/starbucks_sample/), also [online here](pkpass.dev.scholica.com/examples/starbucks_sample/)
+* [Flight ticket example](examples/full_sample/), also [online here](http://pkpass.dev.scholica.com/examples/full_sample/)
+* [Starbucks card example](examples/starbucks_sample/), also [online here](http://pkpass.dev.scholica.com/examples/starbucks_sample/)
 
 
 ## Debugging passes
