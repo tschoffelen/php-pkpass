@@ -41,6 +41,12 @@ class PKPass
     protected $files = [];
 
     /**
+     * Holds the remote file urls to include in the .pkpass
+     * Variable: array.
+     */
+    protected $remote_file_urls = [];
+
+    /**
      * Holds the json
      * Variable: class.
      */
@@ -236,6 +242,22 @@ class PKPass
     }
 
     /**
+     * Add a file from a url to the remote file urls array.
+     *
+     * @param string $url URL to file
+     * @param string $name Filename to use in pass archive
+     *     (default is equal to $url)
+     * @return bool
+     */
+    public function addRemoteFile($url, $name = null)
+    {
+      $name = ($name === null) ? basename($url) : $name;
+      $this->remote_file_urls[$name] = $url;
+
+      return true;
+    }
+
+    /**
      * Create the actual .pkpass file.
      *
      * @param bool $output Whether to output it directly or return the pass
@@ -365,6 +387,13 @@ class PKPass
             $this->shas[$name] = sha1(file_get_contents($path));
         }
 
+        foreach($this->remote_file_urls as $name => $url) {
+            if(strtolower($name) == 'icon.png') {
+                $has_icon = true;
+            }
+            $this->shas[$name] = sha1(file_get_contents($url));
+        }
+
         if(!$has_icon) {
             $this->sError = 'Missing required icon.png file.';
             $this->clean();
@@ -484,6 +513,10 @@ class PKPass
         $zip->addFromString('pass.json', $this->json);
         foreach($this->files as $name => $path) {
             $zip->addFile($path, $name);
+        }
+        foreach($this->remote_file_urls as $name => $url) {
+            $download_file = file_get_contents($url);
+            $zip->addFromString($name, $download_file);
         }
         $zip->close();
 
