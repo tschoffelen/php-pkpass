@@ -89,9 +89,9 @@ class PKPass
     /**
      * PKPass constructor.
      *
-     * @param bool $certPath
-     * @param bool $certPass
-     * @param bool $JSON
+     * @param string|bool $certPath
+     * @param string|bool $certPass
+     * @param string|bool $JSON
      */
     public function __construct($certPath = false, $certPass = false, $JSON = false)
     {
