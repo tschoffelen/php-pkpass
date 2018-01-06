@@ -320,7 +320,7 @@ class PKPass
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Pragma: public');
             header('Content-Length: ' . $size);
-            ob_end_flush();
+            @ob_end_flush();
             set_time_limit(0);
             echo $file;
 
