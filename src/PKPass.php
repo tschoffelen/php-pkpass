@@ -87,6 +87,12 @@ class PKPass
     private $uniqid = null;
 
     /**
+     * Holds array of localization details
+     * Variable: array.
+     */
+    protected $locales = [];
+
+    /**
      * PKPass constructor.
      *
      * @param string|bool $certPath
@@ -215,6 +221,53 @@ class PKPass
         }
 
         $this->sError = 'This is not a JSON string.';
+
+        return false;
+    }
+
+    /**
+     * Add dictionary of strings for transilation.
+     *
+     * @param string $language language project need to be added
+     * @param array $strings key value pair of transilation strings
+     *     (default is equal to [])
+     * @return bool
+     */
+    public function addLocaleStrings($language, $strings = [])
+    {
+        if(!is_array($strings) || empty($strings)) {
+            $this->sError = "Translation strings empty or not an array";
+
+            return false;
+        }
+        $dictionary = "";
+        foreach($strings as $key => $value) {
+            $dictionary .= '"'. $key .'" = "'. $value .'";'. PHP_EOL;
+        }
+        $this->locales[$language] = $dictionary;
+
+        return true;
+    }
+
+    /**
+     * Add a file to the file array.
+     *
+     * @param string $language language for which file to be added
+     * @param string $path Path to file
+     * @param string $name Filename to use in pass archive
+     *     (default is equal to $path)
+     * @return bool
+     */
+    public function addLocaleFile($language, $path, $name = null)
+    {
+        if(file_exists($path)) {
+            $name = ($name === null) ? basename($path) : $name;
+            $this->files[$language .'.lproj/'. $name] = $path;
+
+            return true;
+        }
+
+        $this->sError = sprintf('File %s does not exist.', $path);
 
         return false;
     }
@@ -380,6 +433,12 @@ class PKPass
     {
         // Creates SHA hashes for all files in package
         $this->shas['pass.json'] = sha1($this->json);
+
+        // Creates SHA hashes for string files in each project.
+        foreach($this->locales as $language => $strings) {
+            $this->shas[$language. '.lproj/pass.strings'] = sha1($strings);
+        }
+
         $has_icon = false;
         foreach($this->files as $name => $path) {
             if(strtolower($name) == 'icon.png') {
@@ -512,9 +571,21 @@ class PKPass
         $zip->addFile($paths['signature'], 'signature');
         $zip->addFromString('manifest.json', $manifest);
         $zip->addFromString('pass.json', $this->json);
+
+        // Add transilation dictionary
+        foreach($this->locales as $language => $strings) {
+            if(!$zip->addEmptyDir($language . '.lproj')) {
+                $this->sError = 'Could not create ' . $language . '.lproj folder in zip archive.';
+
+                return false;
+            }
+            $zip->addFromString($language. '.lproj/pass.strings', $strings);
+        }
+
         foreach($this->files as $name => $path) {
             $zip->addFile($path, $name);
         }
+
         foreach($this->remote_file_urls as $name => $url) {
             $download_file = file_get_contents($url);
             $zip->addFromString($name, $download_file);
