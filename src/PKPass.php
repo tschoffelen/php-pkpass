@@ -574,7 +574,7 @@ class PKPass
 
         // Add transilation dictionary
         foreach($this->locales as $language => $strings) {
-            if($zip->addEmptyDir($language . '.lproj')) {
+            if(!$zip->addEmptyDir($language . '.lproj')) {
                 $this->sError = 'Could not create ' . $language . '.lproj folder in zip archive.';
 
                 return false;
