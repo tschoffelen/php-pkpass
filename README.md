@@ -29,6 +29,8 @@ Please take a look at the example.php file for example usage. For more info on t
 6. Select both the certificate and the private key under it, then right click the certificate in Keychain Access and choose `Export 2 items…`.
 6. Choose a password and export the file to a folder.
 
+<img src="guide-export.gif" title="Exporting P12 file" width="540" />
+
 ### Getting the example.php sample to work
 1. Request the Pass certificate (`.p12`) as described above and upload it to your server.
 2. Set the correct path and password on [line 22](examples/example.php#L22).
@@ -46,8 +48,7 @@ After completing these steps, you should be ready to go. Upload all the files to
 ## Debugging passes
 If you aren't able to open your pass on an iPhone, plug the iPhone into a Mac and open the 'Console' application. On the left, you can select your iPhone. You will then be able to inspect any errors that occur while adding the pass:
 
-![Console with Passkit error](https://s3-eu-west-1.amazonaws.com/tsfil/Screen-Shot-2017-04-29-01-32-14-SrVhh/Screen-Shot-2017-04-29-01-32-14.png)
-
+<img src="https://s3-eu-west-1.amazonaws.com/tsfil/Screen-Shot-2017-04-29-01-32-14-SrVhh/Screen-Shot-2017-04-29-01-32-14.png" title="Console with Passkit error" width="540" />
 
 ## Support & documentation
 Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
