@@ -1,5 +1,5 @@
-# PHP Passkit class for iOS Wallet
-This class provides the functionality to create a pass for Wallet in Apple's iOS 6 and newer on-the-fly. It creates, signs and packages the Pass as a .pkpass file according to Apple's documentation.
+# PHP library to create passes for iOS wallet app
+This class provides the functionality to create passes for Wallet in Apple's iOS 6 and newer on-the-fly. It creates, signs and packages the pass as a `.pkpass` file according to Apple's documentation.
 
 ## Requirements
 * PHP 5.4 or higher
@@ -8,13 +8,23 @@ This class provides the functionality to create a pass for Wallet in Apple's iOS
 
 
 ## Installation
+
 #### Composer
-Run: `$ composer require pkpass/pkpass`
+Simply run the following command in your project's root directory to install via [Composer](https://getcomposer.org/):
 
-or add to your composer.json: `"pkpass/pkpass": "^1.0.0"`
+```
+composer require pkpass/pkpass
+```
 
-#### Manual
-Require PKPass.php file in your php files `require('src/PKPass.php');`
+Or add to your composer.json: `"pkpass/pkpass": "^1.0.0"`
+
+
+#### Manually
+Include the `PKPass.php` file in your PHP project: 
+
+```
+require('src/PKPass.php');
+```
 
 
 ## Usage
@@ -50,7 +60,8 @@ If you aren't able to open your pass on an iPhone, plug the iPhone into a Mac an
 
 <img src="https://s3-eu-west-1.amazonaws.com/tsfil/Screen-Shot-2017-04-29-01-32-14-SrVhh/Screen-Shot-2017-04-29-01-32-14.png" title="Console with Passkit error" width="540" />
 
+
 ## Support & documentation
-Please read the instructions above and consult the [Passbook Documentation](https://developer.apple.com/passbook/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
+Please read the instructions above and consult the [Wallet Documentation](https://developer.apple.com/wallet/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
 
 Email me at thomas [at] scholica.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
