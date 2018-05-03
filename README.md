@@ -20,7 +20,7 @@ Or add to your composer.json: `"pkpass/pkpass": "^1.0.0"`
 
 
 #### Manually
-Include the `PKPass.php` file in your PHP project: 
+Include the `PKPass.php` file in your PHP project:
 
 ```
 require('src/PKPass.php');
@@ -50,9 +50,9 @@ After completing these steps, you should be ready to go. Upload all the files to
 
 
 ## Included demos
-* [Simple example](examples/example.php)
-* [Flight ticket example](examples/full_sample/), also [online here](http://pkpass.dev.scholica.com/examples/full_sample/)
-* [Starbucks card example](examples/starbucks_sample/), also [online here](http://pkpass.dev.scholica.com/examples/starbucks_sample/)
+* 📦 [Simple example](examples/example.php)
+* ✈️ [Flight ticket example](examples/full_sample/)
+* ☕️ [Starbucks card example](examples/starbucks_sample/)
 
 
 ## Debugging passes
