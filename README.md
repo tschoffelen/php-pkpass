@@ -39,7 +39,7 @@ Please take a look at the example.php file for example usage. For more info on t
 6. Select both the certificate and the private key under it, then right click the certificate in Keychain Access and choose `Export 2 items…`.
 6. Choose a password and export the file to a folder.
 
-<img src=".github/guide-export.gif" title="Exporting P12 file" width="540" />
+<img src="examples/guide-export.gif" title="Exporting P12 file" width="540" />
 
 ### Getting the example.php sample to work
 1. Request the Pass certificate (`.p12`) as described above and upload it to your server.
