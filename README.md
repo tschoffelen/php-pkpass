@@ -16,7 +16,7 @@ Simply run the following command in your project's root directory to install via
 composer require pkpass/pkpass
 ```
 
-Or add to your composer.json: `"pkpass/pkpass": "^1.0.0"`
+Or add to your composer.json: `"pkpass/pkpass": "^1.2.0"`
 
 
 #### Manually
