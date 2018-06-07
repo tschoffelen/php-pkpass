@@ -309,6 +309,23 @@ class PKPass
 
       return true;
     }
+    
+    /**
+     * Add a locale file from a url to the remote file urls array.
+     *
+     * @param string $language language for which file to be added
+     * @param string $url URL to file
+     * @param string $name Filename to use in pass archive
+     *     (default is equal to $url)
+     * @return bool
+     */
+    public function addLocaleRemoteFile($language, $url, $name = null)
+    {
+      $name = ($name === null) ? basename($url) : $name;
+      $this->remote_file_urls[$language .'.lproj/'. $name] = $url;
+
+      return true;
+    }
 
     /**
      * Create the actual .pkpass file.
