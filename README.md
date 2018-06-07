@@ -55,6 +55,12 @@ After completing these steps, you should be ready to go. Upload all the files to
 * ☕️ [Starbucks card example](examples/starbucks_sample/)
 
 
+## Functions to add files
+* `addFile` : add a file without locale like `icon.png`
+* `addRemoteFile` : add a file from a url without locale like `https://xyz.io/icon.png`
+* `addLocaleFile` : add a localized file like `strip.png`
+* `addLocaleRemoteFile` : add a localized file from a url like `https://xyz.io/strip.png`
+
 ## Debugging passes
 If you aren't able to open your pass on an iPhone, plug the iPhone into a Mac and open the 'Console' application. On the left, you can select your iPhone. You will then be able to inspect any errors that occur while adding the pass:
 
