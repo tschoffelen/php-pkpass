@@ -117,7 +117,7 @@ class PKPass
     /**
      * Sets the path to a certificate
      * Parameter: string, path to certificate
-     * Return: boolean, true on success, false if file does not exist.
+     * Return: boolean, always true.
      *
      * @param $path
      *
@@ -125,15 +125,9 @@ class PKPass
      */
     public function setCertificate($path)
     {
-        if(@file_get_contents($path)) {
-            $this->certPath = $path;
+        $this->certPath = $path;
 
-            return true;
-        }
-
-        $this->sError = 'Certificate file does not exist.';
-
-        return false;
+        return true;
     }
 
     /**
