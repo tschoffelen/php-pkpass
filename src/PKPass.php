@@ -125,7 +125,7 @@ class PKPass
      */
     public function setCertificate($path)
     {
-        if(file_exists($path)) {
+        if(@file_get_contents($path)) {
             $this->certPath = $path;
 
             return true;
