@@ -385,7 +385,10 @@ class PKPass
             header('Last-Modified: ' . gmdate('D, d M Y H:i:s T'));
             header('Pragma: public');
             header('Content-Length: ' . $size);
-            @ob_end_flush();
+            if (ob_get_level() > 0)
+            {
+                ob_end_flush();
+            }
             set_time_limit(0);
             echo $file;
 
