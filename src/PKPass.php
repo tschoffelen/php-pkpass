@@ -71,7 +71,7 @@ class PKPass
     protected $wwdrCertPath = '';
 
     /**
-     * Holds the path to a temporary folder.
+     * Holds the path to a temporary folder with trailing slash.
      */
     protected $tempPath;
 
