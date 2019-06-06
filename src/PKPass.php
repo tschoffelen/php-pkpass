@@ -73,7 +73,7 @@ class PKPass
     /**
      * Holds the path to a temporary folder.
      */
-    protected $tempPath = '/tmp/'; // Must end with slash!
+    protected $tempPath;
 
     /**
      * Holds error info if an error occurred.
@@ -101,6 +101,7 @@ class PKPass
      */
     public function __construct($certPath = false, $certPass = false, $JSON = false)
     {
+        $this->tempPath = sys_get_temp_dir() . '/';  // Must end with slash!
         $this->wwdrCertPath = __DIR__ . '/Certificate/AppleWWDRCA.pem';
 
         if($certPath != false) {
