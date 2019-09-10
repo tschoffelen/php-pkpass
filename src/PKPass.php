@@ -631,10 +631,10 @@ class PKPass
         // passes at the same time without erasing/overwriting each others files
         if(empty($this->uniqid)) {
             $this->uniqid = uniqid('PKPass', true);
+        }
 
-            if(!is_dir($this->tempPath . $this->uniqid)) {
-                mkdir($this->tempPath . $this->uniqid);
-            }
+        if(!is_dir($this->tempPath . $this->uniqid)) {
+            mkdir($this->tempPath . $this->uniqid);
         }
 
         // Add temp folder path
