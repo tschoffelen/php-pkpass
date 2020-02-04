@@ -33,7 +33,7 @@ Please take a look at the example.php file for example usage. For more info on t
 ### Requesting the Pass Certificate
 1. Go to the [iOS Provisioning portal](https://developer.apple.com/account/ios/identifier/passTypeId).
 2. Create a new Pass Type ID, and write down the Pass ID you choose, you'll need it later.
-3. Click the edit button under your newly created Pass Type ID and generate a certificate according to the instructions shown on the page.
+3. Click the edit button under your newly created Pass Type ID and generate a certificate according to the instructions shown on the page. Make sure *not* to choose a name for the Certificate but keep it empty instead.
 4. Download the .cer file and drag it into Keychain Access.
 5. Find the certificate you just imported and click the triangle on the left to reveal the private key.
 6. Select both the certificate and the private key under it, then right click the certificate in Keychain Access and choose `Export 2 items…`.
@@ -66,6 +66,8 @@ If you aren't able to open your pass on an iPhone, plug the iPhone into a Mac an
 
 <img src="https://s3-eu-west-1.amazonaws.com/tsfil/Screen-Shot-2017-04-29-01-32-14-SrVhh/Screen-Shot-2017-04-29-01-32-14.png" title="Console with Passkit error" width="540" />
 
+* `Trust evaluate failure: [leaf TemporalValidity]`: If you see this error, your pass was signed with an outdated certificate.
+* `Trust evaluate failure: [leaf LeafMarkerOid]`: You did not leave the name of the certificate empty while creating it in the developer portal. 
 
 ## Support & documentation
 Please read the instructions above and consult the [Wallet Documentation](https://developer.apple.com/wallet/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
