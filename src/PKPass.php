@@ -237,7 +237,7 @@ class PKPass
         }
         $dictionary = "";
         foreach($strings as $key => $value) {
-            $dictionary .= '"'. $key .'" = "'. $value .'";'. PHP_EOL;
+            $dictionary .= '"'. $this->escapeLocaleString($key) .'" = "'. $this->escapeLocaleString($value) .'";'. PHP_EOL;
         }
         $this->locales[$language] = $dictionary;
 
@@ -664,5 +664,18 @@ class PKPass
         }
 
         return true;
+    }
+
+    protected static $escapeChars = [
+        "\n" => "\\n",
+        "\r" => "\\r",
+        "\"" => "\\\"",
+        "\\" => "\\\\"
+    ];
+    /**
+     * Escapes strings for use in locale files
+     */
+    protected function escapeLocaleString($string) {
+        return strtr($string, self::$escapeChars);
     }
 }
