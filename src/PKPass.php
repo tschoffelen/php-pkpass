@@ -385,7 +385,6 @@ class PKPass
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Last-Modified: ' . gmdate('D, d M Y H:i:s T'));
             header('Pragma: public');
-            header('Content-Length: ' . $size);
             if (ob_get_level() > 0)
             {
                 ob_end_flush();
