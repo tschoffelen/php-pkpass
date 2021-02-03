@@ -1,4 +1,4 @@
-# PHP library to create passes for iOS wallet app
+# PHP library to create passes for iOS Wallet app
 This class provides the functionality to create passes for Wallet in Apple's iOS 6 and newer on-the-fly. It creates, signs and packages the pass as a `.pkpass` file according to Apple's documentation.
 
 ## Requirements
