@@ -72,4 +72,18 @@ If you aren't able to open your pass on an iPhone, plug the iPhone into a Mac an
 ## Support & documentation
 Please read the instructions above and consult the [Wallet Documentation](https://developer.apple.com/wallet/) before submitting tickets or requesting support. It might also be worth to [check Stackoverflow](http://stackoverflow.com/search?q=%22PHP-PKPass%22), which contains quite a few questions about this library.
 
-Email me at thomas [at] scholica.com or tweet me [@tschoffelen](http://www.twitter.com/tschoffelen).
+
+
+<br /><br />
+
+---
+
+<div align="center">
+	<b>
+		<a href="https://schof.co/consulting/?utm_source=flexible-agency/php-pkpass">Get professional support for this package →</a>
+	</b>
+	<br>
+	<sub>
+		Custom consulting sessions availabe for implementation support and feature development.
+	</sub>
+</div>
