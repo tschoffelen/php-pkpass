@@ -1,5 +1,9 @@
 # PHP library to create passes for iOS Wallet
 
+[![Packagist Version](https://img.shields.io/packagist/v/pkpass/pkpass)](https://packagist.org/packages/pkpass/pkpass)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/pkpass/pkpass)](https://packagist.org/packages/pkpass/pkpass)
+[![Packagist License](https://img.shields.io/packagist/l/pkpass/pkpass)](LICENSE)
+
 This class provides the functionality to create passes for Wallet in Apple's iOS. It creates,
 signs and packages the pass as a `.pkpass` file according to Apple's documentation.
 
