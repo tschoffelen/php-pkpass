@@ -102,7 +102,7 @@ this library.
 
 <div align="center">
 	<b>
-		<a href="https://schof.co/consulting/?utm_source=flexible-agency/php-pkpass">Get professional support for this package →</a>
+		<a href="https://includable.com/consultancy/?utm_source=includable/php-pkpass">Get professional support for this package →</a>
 	</b>
 	<br>
 	<sub>
