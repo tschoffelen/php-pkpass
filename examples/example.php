@@ -80,6 +80,4 @@ $pass->addFile('images/icon@2x.png');
 $pass->addFile('images/logo.png');
 
 // Create and output the pass
-if(!$pass->create(true)) {
-    echo 'Error: ' . $pass->getError();
-}
+$pass->create(true);
