@@ -1,32 +1,34 @@
 {
-   "name": "pkpass/pkpass",
-   "license": "MIT",
-   "description": "PHP PKPass class for iOS Wallet",
-   "keywords": [
-      "PHP",
-      "apple",
-      "ios",
-      "iphone",
-      "ipad",
-      "passbook",
-      "wallet"
-   ],
-   "homepage": "https://github.com/tschoffelen/PHP-PKPass",
-   "type": "library",
-   "authors": [
-      {
-         "name": "Thomas Schoffelen",
-         "homepage": "http://thomasschoffelen.com/",
-         "email": "thomas@scholica.com"
-      }
-   ],
-   "require": {
-      "php": ">=5.4",
-      "ext-zip": "*"
-   },
-   "autoload": {
-      "psr-4": {
-         "PKPass\\": "src"
-      }
-   }
+  "name": "pkpass/pkpass",
+  "license": "MIT",
+  "description": "PHP PKPass class for iOS Wallet",
+  "keywords": [
+    "PHP",
+    "apple",
+    "ios",
+    "iphone",
+    "ipad",
+    "passbook",
+    "wallet"
+  ],
+  "homepage": "https://github.com/includable/php-pkpass",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Thomas Schoffelen",
+      "homepage": "https://schof.co/",
+      "email": "thomas@includable.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-zip": "*",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "PKPass\\": "src"
+    }
+  }
 }

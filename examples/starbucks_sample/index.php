@@ -76,9 +76,8 @@ if(isset($_POST['name'])) {
     $pass->addFile('logo.png');
     $pass->addFile('background.png', 'strip.png');
 
-    if(!$pass->create(true)) { // Create and output the PKPass
-        echo 'Error: ' . $pass->getError();
-    }
+    // Create and output the PKPass
+    $pass->create(true);
     exit;
 } else {
     // User lands here, there are no $_POST variables set

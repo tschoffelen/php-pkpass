@@ -43,11 +43,6 @@ if(isset($_POST['passenger'])) {
     //Set certificate and path in the constructor
     $pass = new PKPass('../../Certificates.p12', 'password');
 
-    //Check if an error occurred within the constructor
-    if($pass->checkError($error) == true) {
-        exit('An error occurred: ' . $error);
-    }
-
     // Set pass data
     $pass->setData('{
 	"passTypeIdentifier": "pass.com.scholica.flights",
@@ -100,9 +95,6 @@ if(isset($_POST['passenger'])) {
     },
     "relevantDate": "' . date('Y-m-d\TH:i:sP', $_POST['date']) . '"
     }');
-    if($pass->checkError($error) == true) {
-        exit('An error occured: ' . $error);
-    }
 
     // Add files to the PKPass package
     $pass->addFile('../images/icon.png');
@@ -112,15 +104,9 @@ if(isset($_POST['passenger'])) {
     $pass->addFile('en.strings', 'en.lproj/pass.strings');
     $pass->addFile('fr.strings', 'fr.lproj/pass.strings');
 
-    if($pass->checkError($error) == true) {
-        exit('An error occured: ' . $error);
-    }
     // Create and output the PKPass
     // If you pass true, the class will output the zip into the browser.
-    $result = $pass->create(true);
-    if($result == false) {
-        echo $pass->getError();
-    }
+    $pass->create(true);
 } else {
     // User lands here, there are no $_POST variables set
 	?>
