@@ -81,6 +81,10 @@ left, you can select your iPhone. You will then be able to inspect any errors th
 
 ## Changelog
 
+**Version 2.0.1 - October 2022**
+
+* Update WWDR certificate to v6 ([#118](https://github.com/includable/php-pkpass/issues/118)).
+
 **Version 2.0.0 - September 2022**
 
 * Changed signature of constructor to take out third `$json` parameter.
