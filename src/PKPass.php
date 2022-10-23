@@ -447,7 +447,7 @@ class PKPass
         // Package file in Zip (as .pkpass)
         $zip = new ZipArchive();
         $filename = tempnam($this->tempPath, 'pkpass');
-        if (!$zip->open($filename, ZipArchive::CREATE)) {
+        if (!$zip->open($filename, ZipArchive::OVERWRITE)) {
             throw new PKPassException('Could not open ' . basename($filename) . ' with ZipArchive extension.');
         }
         $zip->addFromString('signature', $signature);
