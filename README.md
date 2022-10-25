@@ -81,6 +81,10 @@ left, you can select your iPhone. You will then be able to inspect any errors th
 
 ## Changelog
 
+**Version 2.0.2 - October 2022**
+
+* Switch to `ZipArchive::OVERWRITE` method of opening ZIP due to PHP 8 deprecation ([#120](https://github.com/includable/php-pkpass/pull/120)).
+
 **Version 2.0.1 - October 2022**
 
 * Update WWDR certificate to v6 ([#118](https://github.com/includable/php-pkpass/issues/118)).
