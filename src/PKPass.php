@@ -48,6 +48,12 @@ class PKPass
     protected $remote_file_urls = [];
 
     /**
+     * Holds the files content to include in the pass.
+     * @var string[]
+     */
+    protected $files_content = [];
+
+    /**
      * Holds the JSON payload.
      * @var object|array
      */
@@ -250,13 +256,36 @@ class PKPass
      * Add a locale file from a url to the remote file urls array.
      *
      * @param string $language language for which file to be added
-     * @param string $url URL to file
+     * @param string $content Content of file
      * @param string $name Filename to use in pass archive (default is equal to $url)
      */
     public function addLocaleRemoteFile($language, $url, $name = null)
     {
         $name = $name ?: basename($url);
         $this->remote_file_urls[$language . '.lproj/' . $name] = $url;
+    }
+
+    /**
+     * Add a file from a string to the string files array.
+     *
+     * @param string $content Content of file
+     * @param string $name Filename to use in pass archive (default is equal to $url)
+     */
+    public function addFileContent($content, $name)
+    {
+        $this->files_content[$name] = $content;
+    }
+
+    /**
+     * Add a locale file from a string to the string files array.
+     *
+     * @param string $language language for which file to be added
+     * @param string $content Content of file
+     * @param string $name Filename to use in pass archive (default is equal to $url)
+     */
+    public function addLocaleFileContent($language, $content, $name)
+    {
+        $this->files_content[$language . '.lproj/' . $name] = $content;
     }
 
     /**
@@ -351,6 +380,13 @@ class PKPass
                 $has_icon = true;
             }
             $sha[$name] = sha1(file_get_contents($url));
+        }
+
+        foreach ($this->files_content as $name => $content) {
+            if (strtolower($name) == 'icon.png') {
+                $has_icon = true;
+            }
+            $sha[$name] = sha1($content);
         }
 
         if (!$has_icon) {
@@ -470,6 +506,11 @@ class PKPass
             $download_file = file_get_contents($url);
             $zip->addFromString($name, $download_file);
         }
+        
+        foreach ($this->files_content as $name => $content) {
+            $zip->addFromString($name, $content);
+        }
+        
         $zip->close();
 
         if (!file_exists($filename) || filesize($filename) < 1) {
