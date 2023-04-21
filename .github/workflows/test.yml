@@ -21,6 +21,7 @@ jobs:
           sed -i '/^default = default_sect/a legacy = legacy_sect' openssl.cnf
           sed -i '/^\[default_sect\]/a activate = 1' openssl.cnf
           printf "[legacy_sect]\nactivate = 1" >> openssl.cnf
+          cat openssl.cnf
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -33,5 +34,5 @@ jobs:
 
       - name: Run PHPUnit
         env:
-          OPENSSL_CONF: openssl.cnf
+          OPENSSL_CONF: ./openssl.cnf
         run: vendor/bin/phpunit tests --coverage-text
