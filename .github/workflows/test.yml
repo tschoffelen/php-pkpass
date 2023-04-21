@@ -17,10 +17,7 @@ jobs:
 
       - name: Use OpenSSL legacy mode
         run: |
-          cp /etc/ssl/openssl.cnf openssl.cnf
-          sed -i '/^default = default_sect/a legacy = legacy_sect' openssl.cnf
-          sed -i '/^\[default_sect\]/a activate = 1' openssl.cnf
-          printf "[legacy_sect]\nactivate = 1" >> openssl.cnf
+          echo "openssl_conf = openssl_init\n[openssl_init]\nproviders = provider_sect\n[provider_sect]\ndefault = default_sect\nlegacy = legacy_sect\n[default_sect]\nactivate = 1\n[legacy_sect]\nactivate = 1" > openssl.cnf
           cat openssl.cnf
 
       - name: Set up PHP
