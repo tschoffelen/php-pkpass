@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use OpenSSL legacy mode
-        if: ${{ matrix.npm }}
+        if: ${{ matrix.openssl_legacy }}
         run: |
           printf "openssl_conf = openssl_init\n[openssl_init]\nproviders = provider_sect\n[provider_sect]\ndefault = default_sect\nlegacy = legacy_sect\n[default_sect]\nactivate = 1\n[legacy_sect]\nactivate = 1" > openssl.cnf
           cat openssl.cnf
