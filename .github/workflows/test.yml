@@ -1,6 +1,6 @@
 name: PHPUnit Tests on Multiple PHP Versions
 
-on: [ push ]
+on: [ push, pull_request ]
 
 jobs:
   tests:
@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        php: [ "7.1", "7.4", "8.0", "8.2" ]
+        php: [ "7.3", "7.4", "8.0", "8.2" ]
 
     steps:
       - name: Checkout code
@@ -24,4 +24,4 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Run PHPUnit
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit tests
