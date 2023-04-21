@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        php: [ "7.3", "7.4", "8.0", "8.2" ]
+        php: [ "7.4", "8.0", "8.1", "8.2" ]
 
     steps:
       - name: Checkout code
@@ -23,5 +24,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
 
+      - name: Check PHP version
+        run: php -v
+
       - name: Run PHPUnit
-        run: vendor/bin/phpunit tests
+        run: vendor/bin/phpunit tests --coverage-text
