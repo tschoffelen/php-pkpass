@@ -435,6 +435,13 @@ class PKPass
 
         $certs = [];
         if (!openssl_pkcs12_read($pkcs12, $certs, $this->certPass)) {
+            if (strstr(openssl_error_string(), 'digital envelope routines::unsupported')) {
+                throw new PKPassException(
+                    'Could not read certificate file. This might be related ' .
+                    'to using an OpenSSL version that has deprecated some older ' .
+                    'hashes. More info here: https://schof.link/2Et6z3m'
+                );
+            }
             throw new PKPassException(
                 'Invalid certificate file. Make sure you have a ' .
                 'P12 certificate that also contains a private key, and you ' .
@@ -506,11 +513,11 @@ class PKPass
             $download_file = file_get_contents($url);
             $zip->addFromString($name, $download_file);
         }
-        
+
         foreach ($this->files_content as $name => $content) {
             $zip->addFromString($name, $content);
         }
-        
+
         $zip->close();
 
         if (!file_exists($filename) || filesize($filename) < 1) {
