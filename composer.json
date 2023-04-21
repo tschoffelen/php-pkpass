@@ -20,15 +20,18 @@
       "email": "thomas@includable.com"
     }
   ],
-  "require": {
-    "php": ">=5.6",
-    "ext-zip": "*",
-    "ext-json": "*",
-    "ext-openssl": "*"
-  },
   "autoload": {
     "psr-4": {
       "PKPass\\": "src"
     }
+  },
+  "require": {
+    "php": ">=7.0",
+    "ext-zip": "*",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.6"
   }
 }

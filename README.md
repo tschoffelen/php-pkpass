@@ -81,6 +81,10 @@ left, you can select your iPhone. You will then be able to inspect any errors th
 
 ## Changelog
 
+**Version 2.1.0 - April 2023**
+
+* Add alternative method for extracting P12 contents to circumvent issues in recent versions of OpenSSL.
+
 **Version 2.0.2 - October 2022**
 
 * Switch to `ZipArchive::OVERWRITE` method of opening ZIP due to PHP 8 deprecation ([#120](https://github.com/includable/php-pkpass/pull/120)).

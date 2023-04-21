@@ -1,0 +1,36 @@
+name: PHPUnit Tests on Multiple PHP Versions
+
+on: [ push, pull_request ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ "7.4", "8.0", "8.1", "8.2" ]
+        openssl_legacy: [ false, true ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use OpenSSL legacy mode
+        if: ${{ matrix.openssl_legacy }}
+        run: |
+          printf "openssl_conf = openssl_init\n[openssl_init]\nproviders = provider_sect\n[provider_sect]\ndefault = default_sect\nlegacy = legacy_sect\n[default_sect]\nactivate = 1\n[legacy_sect]\nactivate = 1" > openssl.cnf
+          cat openssl.cnf
+          export OPENSSL_CONF=openssl.cnf
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: zip, openssl
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit tests --coverage-text
