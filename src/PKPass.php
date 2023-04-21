@@ -435,11 +435,16 @@ class PKPass
 
         $certs = [];
         if (!openssl_pkcs12_read($pkcs12, $certs, $this->certPass)) {
-            if (strstr(openssl_error_string(), 'digital envelope routines::unsupported')) {
+            $error = '';
+            while ($text = openssl_error_string()) {
+                $error .= $text;
+            }
+            if (strstr($error, 'digital envelope routines::unsupported')) {
                 throw new PKPassException(
                     'Could not read certificate file. This might be related ' .
                     'to using an OpenSSL version that has deprecated some older ' .
-                    'hashes. More info here: https://schof.link/2Et6z3m'
+                    'hashes. More info here: https://schof.link/2Et6z3m\n\n' .
+                    'OpenSSL error: ' . $error
                 );
             }
             throw new PKPassException(
