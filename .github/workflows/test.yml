@@ -15,12 +15,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-#      - name: Use OpenSSL legacy mode
-#        run: |
-#          cp /etc/ssl/openssl.cnf openssl.cnf
-#          sed -i '/^default = default_sect/a legacy = legacy_sect' openssl.cnf
-#          sed -i '/^\[default_sect\]/a activate = 1' openssl.cnf
-#          printf "[legacy_sect]\nactivate = 1" >> openssl.cnf
+      - name: Use OpenSSL legacy mode
+        run: |
+          cp /etc/ssl/openssl.cnf openssl.cnf
+          sed -i '/^default = default_sect/a legacy = legacy_sect' openssl.cnf
+          sed -i '/^\[default_sect\]/a activate = 1' openssl.cnf
+          printf "[legacy_sect]\nactivate = 1" >> openssl.cnf
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -32,6 +32,6 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Run PHPUnit
-#        env:
-#          OPENSSL_CONF: openssl.cnf
+        env:
+          OPENSSL_CONF: openssl.cnf
         run: vendor/bin/phpunit tests --coverage-text
