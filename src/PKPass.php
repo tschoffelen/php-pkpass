@@ -418,6 +418,70 @@ class PKPass
     }
 
     /**
+     * Read a PKCS12 certificate string and turn it into an array.
+     *
+     * @return array
+     * @throws PKPassException
+     */
+    protected function readP12()
+    {
+        // Use the built-in reader first
+        if (!$pkcs12 = file_get_contents($this->certPath)) {
+            throw new PKPassException('Could not read the certificate.');
+        }
+        $certs = [];
+        if (openssl_pkcs12_read($pkcs12, $certs, $this->certPass)) {
+            return $certs;
+        }
+
+        // That failed, let's check why
+        $error = '';
+        while ($text = openssl_error_string()) {
+            $error .= $text;
+        }
+
+        // General error
+        if (!strstr($error, 'digital envelope routines::unsupported')) {
+            throw new PKPassException(
+                'Invalid certificate file. Make sure you have a ' .
+                'P12 certificate that also contains a private key, and you ' .
+                'have specified the correct password!' . PHP_EOL . PHP_EOL .
+                'OpenSSL error: ' . $error
+            );
+        }
+
+        // Try an alternative route using shell_exec
+        try {
+            $value = @shell_exec(
+                "openssl pkcs12 -in " . escapeshellarg($this->certPath) .
+                " -passin " . escapeshellarg("pass:" . $this->certPass) .
+                " -passout " . escapeshellarg("pass:" . $this->certPass) .
+                " -legacy"
+            );
+            if ($value) {
+                $cert = substr($value, strpos($value, '-----BEGIN CERTIFICATE-----'));
+                $cert = substr($cert, 0, strpos($cert, '-----END CERTIFICATE-----') + 25);
+                $key = substr($value, strpos($value, '-----BEGIN ENCRYPTED PRIVATE KEY-----'));
+                $key = substr($key, 0, strpos($key, '-----END ENCRYPTED PRIVATE KEY-----') + 35);
+                if (strlen($cert) > 0 && strlen($key) > 0) {
+                    $certs['cert'] = $cert;
+                    $certs['pkey'] = $key;
+                    return $certs;
+                }
+            }
+        } catch (\Throwable $e) {
+            // no need to do anything
+        }
+
+        throw new PKPassException(
+            'Could not read certificate file. This might be related ' .
+            'to using an OpenSSL version that has deprecated some older ' .
+            'hashes. More info here: https://schof.link/2Et6z3m ' . PHP_EOL . PHP_EOL .
+            'OpenSSL error: ' . $error
+        );
+    }
+
+    /**
      * Creates a signature and saves it.
      *
      * @param string $manifest
@@ -429,30 +493,7 @@ class PKPass
         $signature_path = tempnam($this->tempPath, 'pkpass');
         file_put_contents($manifest_path, $manifest);
 
-        if (!$pkcs12 = file_get_contents($this->certPath)) {
-            throw new PKPassException('Could not read the certificate.');
-        }
-
-        $certs = [];
-        if (!openssl_pkcs12_read($pkcs12, $certs, $this->certPass)) {
-            $error = '';
-            while ($text = openssl_error_string()) {
-                $error .= $text;
-            }
-            if (strstr($error, 'digital envelope routines::unsupported')) {
-                throw new PKPassException(
-                    'Could not read certificate file. This might be related ' .
-                    'to using an OpenSSL version that has deprecated some older ' .
-                    'hashes. More info here: https://schof.link/2Et6z3m\n\n' .
-                    'OpenSSL error: ' . $error
-                );
-            }
-            throw new PKPassException(
-                'Invalid certificate file. Make sure you have a ' .
-                'P12 certificate that also contains a private key, and you ' .
-                'have specified the correct password!'
-            );
-        }
+        $certs = $this->readP12();
         $certdata = openssl_x509_read($certs['cert']);
         $privkey = openssl_pkey_get_private($certs['pkey'], $this->certPass);
 

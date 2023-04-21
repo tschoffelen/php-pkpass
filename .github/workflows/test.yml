@@ -19,6 +19,7 @@ jobs:
         run: |
           printf "openssl_conf = openssl_init\n[openssl_init]\nproviders = provider_sect\n[provider_sect]\ndefault = default_sect\nlegacy = legacy_sect\n[default_sect]\nactivate = 1\n[legacy_sect]\nactivate = 1" > openssl.cnf
           cat openssl.cnf
+          export OPENSSL_CONF=openssl.cnf
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -30,6 +31,4 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Run PHPUnit
-        env:
-          OPENSSL_CONF: ./openssl.cnf
         run: vendor/bin/phpunit tests --coverage-text
