@@ -9,9 +9,9 @@ signs and packages the pass as a `.pkpass` file according to Apple's documentati
 
 ## Requirements
 
-* PHP 5.6 or higher
-* PHP [ZIP Support](http://php.net/manual/en/book.zip.php) (may be installed by default)
-* Access to filesystem (script must be able to create temporary folders)
+* PHP 7.0 or higher (may also work with older versions)
+* PHP [ZIP extension](http://php.net/manual/en/book.zip.php) (often installed by default)
+* Access to filesystem to write temporary cache files
 
 ## Installation
 
