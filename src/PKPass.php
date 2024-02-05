@@ -23,6 +23,9 @@ use ZipArchive;
  */
 class PKPass
 {
+    const FILE_TYPE = 'pass';
+    const FILE_EXT = 'pkpass';
+    const MIME_TYPE = 'application/vnd.apple.pkpass';
     /**
      * Holds the path to the certificate.
      * @var string
@@ -55,7 +58,7 @@ class PKPass
 
     /**
      * Holds the JSON payload.
-     * @var object|array
+     * @var string
      */
     protected $json;
 
@@ -312,7 +315,7 @@ class PKPass
 
         // Output pass
         header('Content-Description: File Transfer');
-        header('Content-Type: application/vnd.apple.pkpass');
+        header('Content-Type: ' . self::MIME_TYPE);
         header('Content-Disposition: attachment; filename="' . $this->getName() . '"');
         header('Content-Transfer-Encoding: binary');
         header('Connection: Keep-Alive');
@@ -332,9 +335,9 @@ class PKPass
      */
     public function getName()
     {
-        $name = $this->name ?: 'pass';
+        $name = $this->name ?: self::FILE_TYPE;
         if (!strstr($name, '.')) {
-            $name .= '.pkpass';
+            $name .= '.' . self::FILE_EXT;
         }
 
         return $name;
