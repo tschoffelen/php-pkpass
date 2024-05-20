@@ -54,6 +54,13 @@ style it, take a look at the [docs at developers.apple.com](https://developer.ap
    choose `Export 2 items…`.
 6. Choose a password and export the file to a folder.
 
+#### OpenSSL error
+When you get the error 'Could not read certificate file. This might be related to using an OpenSSL version that has deprecated some older hashes. More info here: https://schof.link/2Et6z3m OpenSSL error: error:0308010C:digital envelope routines::unsupported' this is due to osx exporting the .p12 file using an old version of OpenSSL. To fix this issue, use the following commands:
+
+`openssl pkcs12 -legacy -in key.p12 -nodes -out key_decrypted.tmp` (replace key.p12 with your .p12 file name). 
+
+`openssl pkcs12 -in key_decrypted.tmp -export -out key_new.p12` (use the newly generated key_new.p12 file in your pass generation below)
+
 ![Exporting P12 file](docs/guide-export.gif)
 
 ### Getting the example.php sample to work
