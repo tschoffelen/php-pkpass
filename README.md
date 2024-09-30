@@ -54,6 +54,18 @@ style it, take a look at the [docs at developers.apple.com](https://developer.ap
    choose `Export 2 items…`.
 6. Choose a password and export the file to a folder.
 
+### Requesting the Order Certificate
+
+1. Go to the [iOS Provisioning portal](https://developer.apple.com/account/ios/identifier/passTypeId).
+2. Create a new Order Type ID Certificate, and write down the Order Type ID you choose, you'll need it later.
+3. Click the edit button under your newly created Order Type ID and generate a certificate according to the instructions
+   shown on the page. Make sure *not* to choose a name for the Certificate but keep it empty instead.
+4. Download the .cer file and drag it into Keychain Access.
+5. Find the certificate you just imported and click the triangle on the left to reveal the private key.
+6. Select both the certificate and the private key it, then right-click the certificate in Keychain Access and
+   choose `Export 2 items…`.
+6. Choose a password and export the file to a folder.
+
 #### OpenSSL error
 When you get the error 'Could not read certificate file. This might be related to using an OpenSSL version that has deprecated some older hashes. More info here: https://schof.link/2Et6z3m OpenSSL error: error:0308010C:digital envelope routines::unsupported' this is due to osx exporting the .p12 file using an old version of OpenSSL. To fix this issue, use the following commands:
 
