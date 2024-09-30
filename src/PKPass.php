@@ -315,7 +315,7 @@ class PKPass
 
         // Output pass
         header('Content-Description: File Transfer');
-        header('Content-Type: ' . self::MIME_TYPE);
+        header('Content-Type: ' . static::MIME_TYPE);
         header('Content-Disposition: attachment; filename="' . $this->getName() . '"');
         header('Content-Transfer-Encoding: binary');
         header('Connection: Keep-Alive');
