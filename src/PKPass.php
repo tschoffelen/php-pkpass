@@ -335,9 +335,9 @@ class PKPass
      */
     public function getName()
     {
-        $name = $this->name ?: self::FILE_TYPE;
+        $name = $this->name ?: static::FILE_TYPE;
         if (!strstr($name, '.')) {
-            $name .= '.' . self::FILE_EXT;
+            $name .= '.' . static::FILE_EXT;
         }
 
         return $name;
