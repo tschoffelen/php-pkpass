@@ -100,6 +100,22 @@ left, you can select your iPhone. You will then be able to inspect any errors th
 
 ## Changelog
 
+**Version 2.3.2 - September 2024**
+
+* Fix order mime type, add better error reporting.
+
+**Version 2.3.1 - March 2024**
+
+* Chore: add gitattributes.
+
+**Version 2.3.0 - February 2024**
+
+* Add support for Wallet Orders.
+
+**Version 2.2.0 - December 2023**
+
+* Update default WWDR certificate to G4.
+
 **Version 2.1.0 - April 2023**
 
 * Add alternative method for extracting P12 contents to circumvent issues in recent versions of OpenSSL.

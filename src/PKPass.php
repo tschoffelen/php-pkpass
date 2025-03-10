@@ -315,7 +315,7 @@ class PKPass
 
         // Output pass
         header('Content-Description: File Transfer');
-        header('Content-Type: ' . self::MIME_TYPE);
+        header('Content-Type: ' . static::MIME_TYPE);
         header('Content-Disposition: attachment; filename="' . $this->getName() . '"');
         header('Content-Transfer-Encoding: binary');
         header('Connection: Keep-Alive');
@@ -335,9 +335,9 @@ class PKPass
      */
     public function getName()
     {
-        $name = $this->name ?: self::FILE_TYPE;
+        $name = $this->name ?: static::FILE_TYPE;
         if (!strstr($name, '.')) {
-            $name .= '.' . self::FILE_EXT;
+            $name .= '.' . static::FILE_EXT;
         }
 
         return $name;
