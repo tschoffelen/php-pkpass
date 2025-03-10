@@ -59,6 +59,58 @@ class FinanceOrder extends PKPass
     }
 
     /**
+     * Create the actual .pkpass file.
+     *
+     * @param bool $output Whether to output it directly or return the pass contents as a string.
+     *
+     * @return string
+     * @throws PKPassException
+     */
+    public function create($output = false)
+    {
+        // Prepare payload
+        $manifest = $this->createManifest();
+        $signature = $this->createSignature($manifest);
+
+        // Build ZIP file
+        $zip = $this->createZip($manifest, $signature);
+
+        // Return pass
+        if (!$output) {
+            return $zip;
+        }
+
+        // Output pass
+        header('Content-Description: File Transfer');
+        header('Content-Type: ' . self::MIME_TYPE);
+        header('Content-Disposition: attachment; filename="' . $this->getName() . '"');
+        header('Content-Transfer-Encoding: binary');
+        header('Connection: Keep-Alive');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s T'));
+        header('Pragma: public');
+        echo $zip;
+
+        return '';
+    }
+
+    /**
+     * Get filename.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        $name = $this->name ?: self::FILE_TYPE;
+        if (!strstr($name, '.')) {
+            $name .= '.' . self::FILE_EXT;
+        }
+
+        return $name;
+    }
+
+    /**
      * Creates .pkpass zip archive.
      *
      * @param string $manifest
